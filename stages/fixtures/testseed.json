@@ -1,0 +1,176 @@
+[
+    {
+        "model": "stages.Stage",
+        "pk": 1,
+        "fields": {
+            "name": "المرحلة الاولي"
+        }
+    },
+    {
+        "model": "stages.Stage",
+        "pk": 2,
+        "fields": {
+            "name": "المرحلة الثانية"
+        }
+    },
+    {
+        "model": "stages.Stage",
+        "pk": 3,
+        "fields": {
+            "name": "المرحلة الثالثة"
+        }
+    },
+
+
+    {
+        "model": "stages.Family",
+        "pk": 1,
+        "fields": {
+            "name": "اسرة القديس اسطفانوس",
+            "year": "1 اسرة سنه اولي",
+            "stage": 1
+        }
+    },
+    {
+        "model": "stages.Family",
+        "pk": 2,
+        "fields": {
+            "name": "اسرة مارمينا",
+            "year": "2 اسرة سنه ثانية",
+            "stage": 1
+        }
+    },
+    {
+        "model": "stages.Family",
+        "pk": 3,
+        "fields": {
+            "name": "اسرة الانبا انطونيوس",
+            "year": "4 اسرة سنه رابعة",
+            "stage": 2
+        }
+    },
+    {
+        "model": "stages.Family",
+        "pk": 4,
+        "fields": {
+            "name": "اسرة البابا كيرلس عمود الدين",
+            "year": "6 اسرة سنه سادسة",
+            "stage": 3
+        }
+    },
+
+
+    {
+        "model": "stages.Children",
+        "pk": 1,
+        "fields": {
+            "name": "انطون",
+            "birth_date": "2007-01-01",
+            "phone": "01265544783",
+            "parent_phone": "01236547895",
+            "address": "20 شارع النزهه",
+            "father": "ابونا دانيال",
+            "year_of_entrance": "2008-01-01",
+            "year_of_graduation": "2018-01-01",
+            "family": 1
+        }
+    },
+    {
+        "model": "stages.Children",
+        "pk": 2,
+        "fields": {
+            "name": "مينا",
+            "birth_date": "2008-01-01",
+            "phone": "01741544783",
+            "parent_phone": "01236563295",
+            "address": "5 شارع لول اللول",
+            "father": "ابونا ابرام",
+            "year_of_entrance": "2006-01-01",
+            "year_of_graduation": "2015-01-01",
+            "family": 2
+        }
+    },
+    {
+        "model": "stages.Children",
+        "pk": 3,
+        "fields": {
+            "name": "جرجس",
+            "birth_date": "2005-01-01",
+            "phone": "01774544783",
+            "parent_phone": "01268563295",
+            "address": "6 شارع البطل عبد العزيز",
+            "father": "ابونا فيلوثاؤس",
+            "year_of_entrance": "2002-01-01",
+            "year_of_graduation": "2012-01-01",
+            "family": 3
+        }
+    },
+    {
+        "model": "stages.Children",
+        "pk": 4,
+        "fields": {
+            "name": "مادونا",
+            "birth_date": "2006-01-01",
+            "phone": "01774549853",
+            "parent_phone": "01268525795",
+            "address": "شارع محمود حميده",
+            "father": "ابونا سوريال",
+            "year_of_entrance": "2006-01-01",
+            "year_of_graduation": "2020-01-01",
+            "family": 4
+        }
+    },
+    {
+        "model": "stages.Children",
+        "pk": 5,
+        "fields": {
+            "name": "فريد",
+            "birth_date": "2001-01-01",
+            "phone": "01276644631",
+            "parent_phone": "01281694254",
+            "address": "شارع محمود محمدددد",
+            "father": "ابونا اباهور",
+            "year_of_entrance": "2010-01-01",
+            "year_of_graduation": "2022-01-01",
+            "family": 4
+        }
+    },
+
+
+    {
+        "model": "stages.Servant",
+        "pk": 1,
+        "fields": {
+            "name": "انكل ريمون",
+            "birth_date": "1999-01-01",
+            "address": "50 شارع الوحده",
+            "role": "خادم عادي",
+            "stage": 1,
+            "family": 1
+        }
+    },
+    {
+        "model": "stages.Servant",
+        "pk": 2,
+        "fields": {
+            "name": "ميس هبه",
+            "birth_date": "2000-01-01",
+            "address": "50 شارع الشيرين",
+            "role": "امين اسرة",
+            "stage": 1,
+            "family": 2
+        }
+    },
+    {
+        "model": "stages.Servant",
+        "pk": 3,
+        "fields": {
+            "name": "انكل مينا وجيه",
+            "birth_date": "1990-01-01",
+            "address": "50 شارع الياسمين",
+            "role": "امين الشمامسة",
+            "stage": null,
+            "family": null
+        }
+    }
+]
