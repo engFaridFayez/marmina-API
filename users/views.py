@@ -32,4 +32,4 @@ class NewUserView(APIView):
             status = 406
             return Response({'error':error_message},status=status)
         
-        return Response({},status=status)
+        return Response({"User Created Successfully!!"},status=status)
