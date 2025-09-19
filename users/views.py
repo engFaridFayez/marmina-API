@@ -11,7 +11,7 @@ from users.serializers import UserSerializer
 logger = logging.getLogger(__name__)
 
 class UsersView(ModelViewSet):
-    permission_class = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserSerializer
     queryset = User.objects.all()
     paginator = None

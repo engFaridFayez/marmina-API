@@ -11,7 +11,6 @@ class UserSerializer(serializers.ModelSerializer):
         return AxesProxyHandler.is_locked(request,{'username':obj})
     
     class Meta:
-
         model = User
         fields = [
             'id',
