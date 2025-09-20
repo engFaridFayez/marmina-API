@@ -5,5 +5,5 @@ tzdata==2025.2
 djangorestframework==3.14.0
 django-cors-headers==3.13.0
 
-djangorestframework_simplejwt==5.2.0
+djangorestframework_simplejwt==5.5.1
 django-axes==5.25.0
