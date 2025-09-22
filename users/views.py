@@ -4,6 +4,9 @@ from rest_framework import permissions , status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
+from django.core.exceptions import ValidationError
+from axes.utils import reset
+
 
 from users.models import User
 from users.serializers import UserSerializer
@@ -19,17 +22,29 @@ class UsersView(ModelViewSet):
 class UpdateUserInfo(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    def put(self,request,format=None,*args,**kwargs):
+    def put(self,request):
         data = request.data
-        user = User.objects.get(id=kwargs['id'],username=data['username'],first_name=data['firstName'],last_name=data['lastName'],email=data['email'])
-        status = 201
+        if self.checkif_request_field_valid(request,"username"):
+            request.user.username = data["username"]
+        if self.checkif_request_field_valid(request,"first_name"):
+            request.user.first_name = data["first_name"]
+        if self.checkif_request_field_valid(request,"last_name"):
+            request.user.last_name = data["last_name"]
+        if self.checkif_request_field_valid(request,"email"):
+            request.user.email = data["email"]
+
         try:
-            user.save()
+            request.user.save()
         except Exception:
             error_message = User._meta.get_field('username').error_messages['unique']
-            status = 406
-            return Response({'error':error_message},status=status)
-        return Response({'User Updated!'},status=200)
+            return Response({'error':error_message},status=status.HTTP_406_NOT_ACCEPTABLE)
+        
+        return Response({"Updated!"},status=status.HTTP_200_OK)
+
+    def checkif_request_field_valid(self,request,field_name):
+        if field_name in request.data and request.data[field_name] and request.data[field_name] != "":
+            return True
+        return False
 
 class NewUserView(APIView):
 
@@ -80,3 +95,20 @@ class UpdateUserStatusView(APIView):
         user.is_active = activity
         user.save()
         return Response({"Activity updated"},status=status.HTTP_200_OK)
+    
+
+
+class ResetLoginView(APIView):
+    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+
+    def post(self,request):
+        data = request.data
+        if 'blocked_user' not in data.keys():
+            raise ValidationError(detail={'blocked_user':'This field is required'})
+        
+        if not User.objects.filter(username=data['blocked_user']).exists():
+            raise ValidationError(('username does not exist'),code='username does not exist')
+        
+        reset(username=data['blocked_user'])
+
+        return Response({"User Unblocked"},status=status.HTTP_200_OK)

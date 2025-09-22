@@ -40,7 +40,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             response = super().post(request, *args,**kwargs)
         except exceptions.AuthenticationFailed as e:
             if getattr(request, "axes_locked_out", request):
-                raise exceptions.AuthenticationFailed(detail="Due to the too many unseccessfull attempts your account is blocked. please contact the administrator")
+                raise exceptions.AuthenticationFailed(detail="Due to the too many unseccessful attempts your account is blocked. please contact the administrator")
             else:
                 raise e
         return response
