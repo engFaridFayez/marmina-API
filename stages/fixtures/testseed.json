@@ -61,7 +61,7 @@
 
 
     {
-        "model": "stages.Children",
+        "model": "stages.Child",
         "pk": 1,
         "fields": {
             "name": "انطون",
@@ -76,7 +76,7 @@
         }
     },
     {
-        "model": "stages.Children",
+        "model": "stages.Child",
         "pk": 2,
         "fields": {
             "name": "مينا",
@@ -91,7 +91,7 @@
         }
     },
     {
-        "model": "stages.Children",
+        "model": "stages.Child",
         "pk": 3,
         "fields": {
             "name": "جرجس",
@@ -106,7 +106,7 @@
         }
     },
     {
-        "model": "stages.Children",
+        "model": "stages.Child",
         "pk": 4,
         "fields": {
             "name": "مادونا",
@@ -121,7 +121,7 @@
         }
     },
     {
-        "model": "stages.Children",
+        "model": "stages.Child",
         "pk": 5,
         "fields": {
             "name": "فريد",

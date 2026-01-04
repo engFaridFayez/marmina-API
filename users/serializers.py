@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import User
+from users.models import CustomUser
 from axes.handlers.proxy import AxesProxyHandler
 
 class UserSerializer(serializers.ModelSerializer):
@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
 
-        model = User
+        model = CustomUser
         fields = [
             'id',
             'username',

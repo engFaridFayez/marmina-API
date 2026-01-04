@@ -24,9 +24,9 @@ class FamilySerializer(serializers.ModelSerializer):
         return super(FamilySerializer,self).to_representation(instance)
 
 
-class ChildrenSerialzer(serializers.ModelSerializer):
+class ChildSerialzer(serializers.ModelSerializer):
     class Meta:
-        model = Children
+        model = Child
         fields = [
             'id',
             'name',
@@ -42,7 +42,7 @@ class ChildrenSerialzer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         self.fields['family'] = FamilySerializer(read_only=True)
-        return super(ChildrenSerialzer,self).to_representation(instance)
+        return super(ChildSerialzer,self).to_representation(instance)
 
 
 class ServantSerializer(serializers.ModelSerializer):

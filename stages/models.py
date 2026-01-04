@@ -1,5 +1,8 @@
 from django.db import models
 
+from users.models import CustomUser
+
+
 # Create your models here.
 
 ROLE = {
@@ -11,7 +14,7 @@ ROLE = {
 }
 
 class Stage(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50,unique=True)
 
     def __str__(self):
         return self.name
@@ -23,7 +26,8 @@ class Family(models.Model):
 
     
 
-class Children(models.Model):
+class Child(models.Model):
+    user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
     name = models.CharField(max_length=60)
     birth_date = models.DateField()
     phone = models.CharField(max_length=20)
@@ -31,7 +35,7 @@ class Children(models.Model):
     address = models.CharField(max_length=100)
     father = models.CharField(max_length=50)
     year_of_entrance = models.DateField()
-    year_of_graduation = models.DateField()
+    year_of_graduation = models.DateField(null=True, blank=True)
     family = models.ForeignKey(Family, on_delete=models.CASCADE, related_name="children")
 
     def __str__(self):
@@ -39,6 +43,7 @@ class Children(models.Model):
 
 
 class Servant(models.Model):
+    user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     birth_date = models.DateField()
     address = models.CharField(max_length=100)

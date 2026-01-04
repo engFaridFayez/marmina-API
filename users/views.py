@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 from axes.utils import reset
 from django.contrib.auth.password_validation import validate_password
 
-from users.models import User
+from users.models import CustomUser
 from users.serializers import UserSerializer
 
 logger = logging.getLogger(__name__)
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class UsersView(ModelViewSet):
     permission_class = [permissions.IsAuthenticated]
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    queryset = CustomUser.objects.all()
     paginator = None
 
 class UpdateUserInfo(APIView):
@@ -36,7 +36,7 @@ class UpdateUserInfo(APIView):
         try:
             request.user.save()
         except Exception:
-            error_message = User._meta.get_field('username').error_messages['unique']
+            error_message = CustomUser._meta.get_field('username').error_messages['unique']
             return Response({'error':error_message},status=status.HTTP_406_NOT_ACCEPTABLE)
         
         return Response({"Updated!"},status=status.HTTP_200_OK)
@@ -52,7 +52,7 @@ class DeactivateUserView(APIView):
 
     def post(self,request):
         data = request.data
-        user = User.objects.get(username=data['username'])
+        user = CustomUser.objects.get(username=data['username'])
         if user.is_active == False:
             user.is_active = True
         else:
@@ -70,7 +70,7 @@ class UpdateUserStatusView(APIView):
         username = data['username']
         activity = data['status']
 
-        user = User.objects.get(username=username)
+        user = CustomUser.objects.get(username=username)
         user.is_active = activity
 
         user.save()
@@ -81,7 +81,7 @@ class DeleteUserView(APIView):
 
     def delete(self,request,format=None):
         data = request.data
-        user = User.objects.get(id=data['user_id'])
+        user = CustomUser.objects.get(id=data['user_id'])
         user.delete()
         return Response({"message":"User deleted Successfully"},status=200)
 
@@ -91,7 +91,7 @@ class NewUserView(APIView):
 
     def post(self,request, format=None):
         data = request.data
-        user = User(username=data['username'],first_name=data['firstName'],last_name=data['lastName'],email=data['email'],is_staff=data['is_staff'],is_active=True,required_password_change=True,password_change_date=timezone.now())
+        user = CustomUser(username=data['username'],first_name=data['firstName'],last_name=data['lastName'],email=data['email'],is_staff=data['is_staff'],is_active=True,required_password_change=True,password_change_date=timezone.now())
         user.set_password(data['passwd'])
         try:
             validate_password(data['passwd'],user)
@@ -99,7 +99,7 @@ class NewUserView(APIView):
         except ValidationError as e:
             return Response(e,status=status.HTTP_400_BAD_REQUEST)
         except Exception:
-            error_message = User._meta.get_field('username').error_messages['unique']
+            error_message = CustomUser._meta.get_field('username').error_messages['unique']
             return Response({'error':error_message},status=status.HTTP_406_NOT_ACCEPTABLE)
         
         return Response({"User Created Successfully!!"},status=status.HTTP_200_OK)
@@ -109,7 +109,7 @@ class DeleteUserView(APIView):
 
     def delete(self,request,format=None):
         data = request.data
-        user = User.objects.get(id=data['user_id'])
+        user = CustomUser.objects.get(id=data['user_id'])
         user.delete()
         return Response({},status=200)
     
@@ -133,7 +133,7 @@ class ResetLoginView(APIView):
         if 'blocked_user' not in data.keys():
             raise ValidationError(detail={'blocked_user':'This field is required'})
         
-        if not User.objects.filter(username=data['blocked_user']).exists():
+        if not CustomUser.objects.filter(username=data['blocked_user']).exists():
             raise ValidationError(('username does not exist'),code='username does not exist')
         
         reset(username=data['blocked_user'])
@@ -152,7 +152,7 @@ class AdminResetUserPassword(APIView):
         target_user = data['target_user']
 
         validate_password(new_password,target_user)
-        user = User.objects.get(username=target_user)
+        user = CustomUser.objects.get(username=target_user)
         user.required_password_change = False
         user.password_change_date = timezone.now()
         user.set_password(new_password)

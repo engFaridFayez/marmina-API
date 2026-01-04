@@ -67,7 +67,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' : ('rest_framework.permissions.IsAuthenticated',),
 }
 
-AUTH_USER_MODEL = 'users.user'
+AUTH_USER_MODEL = 'users.CustomUser'
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME':timedelta(hours=12),
@@ -105,7 +105,7 @@ DATABASES = {
     }
 }
 
-AXES_FAILURE_LIMIT = 5
+AXES_FAILURE_LIMIT = 3
 AXES_ONLY_USER_FAILURES =True
 AXES_RESET_ON_SUCCESS = True
 

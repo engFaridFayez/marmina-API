@@ -1,15 +1,15 @@
 from rest_framework import viewsets
 
-from stages.models import Children, Family, Servant, Stage
-from stages.serializers import ChildrenSerialzer, FamilySerializer, ServantSerializer, StageSerializer
+from stages.models import Child, Family, Servant, Stage
+from stages.serializers import ChildSerialzer, FamilySerializer, ServantSerializer, StageSerializer
 
 # Create your views here.
 
 class ChildrenViewSet(viewsets.ModelViewSet):
-    serializer_class= ChildrenSerialzer
+    serializer_class= ChildSerialzer
 
     def get_queryset(self):
-        return Children.objects.all().order_by('name')
+        return Child.objects.all().order_by('name')
     
 class FamilyViewSet(viewsets.ModelViewSet):
     serializer_class = FamilySerializer
