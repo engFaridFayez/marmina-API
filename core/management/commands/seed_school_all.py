@@ -14,9 +14,11 @@ DEFAULT_PASSWORD = "TempPass123"  # will be overridden by pattern username@123
 def safe_str(x):
     return str(x).strip() if x is not None else ""
 
-def first_name_from(full_name):
+def split_first_last(full_name):
     parts = safe_str(full_name).split()
-    return parts[0].capitalize() if parts else "User"
+    first_name = parts[0].capitalize() if len(parts) > 0 else "User"
+    last_name = parts[1].capitalize() if len(parts) > 1 else ""
+    return first_name, last_name
 
 def next_serial_for(first_name_prefix, kind):
     """
@@ -148,7 +150,7 @@ class Command(BaseCommand):
                         summary["errors"].append(f"Child '{name}' references missing family id: {family_id}")
                         continue
 
-                    first_name = first_name_from(name)
+                    first_name, last_name = split_first_last(name)
                     # generate unique username
                     username = generate_username(first_name, kind='child')
                     password = generate_password(username)
@@ -160,6 +162,8 @@ class Command(BaseCommand):
                             user = CustomUser.objects.create_user(
                                 username=username,
                                 password=password,
+                                first_name=first_name,
+                                last_name=last_name,
                                 required_password_change=True
                             )
                             break
@@ -236,7 +240,7 @@ class Command(BaseCommand):
                         summary["errors"].append(f"Servant '{name}' references missing family id: {family_id}")
                         continue
 
-                    first_name = first_name_from(name)
+                    first_name, last_name = split_first_last(name)
                     username = generate_username(first_name, kind='servant')
                     password = generate_password(username)
 
@@ -246,6 +250,8 @@ class Command(BaseCommand):
                             user = CustomUser.objects.create_user(
                                 username=username,
                                 password=password,
+                                first_name=first_name,
+                                last_name=last_name,
                                 required_password_change=True
                             )
                             break
