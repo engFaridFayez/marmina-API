@@ -27,6 +27,8 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['is_active'] = self.user.is_active
         data['requires_reset'] = self.user.required_password_change
         data['username'] = self.user.username
+        data['first_name'] = self.user.first_name
+        data['last_name']= self.user.last_name
         data['id'] = self.user.id
 
         return data
