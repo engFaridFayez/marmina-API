@@ -19,5 +19,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('api/',include('users.urls')),
-    path('api/',include('stages.urls'))
+    path('api/',include('stages.urls')),
+    path('api/drive/',include('drive.urls')),
 ]
