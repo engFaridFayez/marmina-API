@@ -108,10 +108,12 @@ DATABASES = {
 }
 
 AXES_FAILURE_LIMIT = 3
-AXES_ONLY_USER_FAILURES =True
 AXES_RESET_ON_SUCCESS = True
 
-
+AXES_LOCKOUT_PARAMETERS = [
+    "ip_address",
+    "username",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
