@@ -61,10 +61,10 @@ class Command(BaseCommand):
             with transaction.atomic():
                 # 1) stages
                 try:
-                    wb = openpyxl.load_workbook("stage.xlsx", data_only=True)
+                    wb = openpyxl.load_workbook("stage2.xlsx", data_only=True)
                     sheet = wb.active
                 except FileNotFoundError:
-                    self.stdout.write(self.style.ERROR("stage.xlsx not found."))
+                    self.stdout.write(self.style.ERROR("stage2.xlsx not found."))
                     return
 
                 for row in sheet.iter_rows(min_row=2, values_only=True):
@@ -85,10 +85,10 @@ class Command(BaseCommand):
 
                 # 2) families
                 try:
-                    wb = openpyxl.load_workbook("family.xlsx", data_only=True)
+                    wb = openpyxl.load_workbook("family2.xlsx", data_only=True)
                     sheet = wb.active
                 except FileNotFoundError:
-                    self.stdout.write(self.style.ERROR("family.xlsx not found."))
+                    self.stdout.write(self.style.ERROR("family2.xlsx not found."))
                     return
 
                 for row in sheet.iter_rows(min_row=2, values_only=True):
