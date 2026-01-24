@@ -14,7 +14,7 @@ from users.serializers import UserSerializer
 logger = logging.getLogger(__name__)
 
 class UsersView(ModelViewSet):
-    permission_class = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
     paginator = None
@@ -86,23 +86,45 @@ class DeleteUserView(APIView):
         return Response({"message":"User deleted Successfully"},status=200)
 
 class NewUserView(APIView):
-
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
-    def post(self,request, format=None):
+    def post(self, request, format=None):
         data = request.data
-        user = CustomUser(username=data['username'],first_name=data['firstName'],last_name=data['lastName'],email=data['email'],is_staff=data['is_staff'],is_active=True,required_password_change=True,password_change_date=timezone.now())
-        user.set_password(data['passwd'])
+
         try:
-            validate_password(data['passwd'],user)
+            user = CustomUser(
+                username=data['username'],
+                first_name=data.get('first_name', ''),
+                last_name=data.get('last_name', ''),
+                email=data.get('email', ''),
+                is_staff=data.get('is_staff', False),
+                is_active=True,
+                required_password_change=True,
+                password_change_date=timezone.now()
+            )
+
+            validate_password(data['password'], user)
+            user.set_password(data['password'])
             user.save()
+
         except ValidationError as e:
-            return Response(e,status=status.HTTP_400_BAD_REQUEST)
-        except Exception:
+            return Response(
+                {"errors": e.messages},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        except Exception as e:
             error_message = CustomUser._meta.get_field('username').error_messages['unique']
-            return Response({'error':error_message},status=status.HTTP_406_NOT_ACCEPTABLE)
-        
-        return Response({"User Created Successfully!!"},status=status.HTTP_200_OK)
+            return Response(
+                {'error': error_message},
+                status=status.HTTP_406_NOT_ACCEPTABLE
+            )
+
+        return Response(
+            UserSerializer(user).data,
+            status=status.HTTP_201_CREATED
+        )
+
     
 class DeleteUserView(APIView):
     permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]

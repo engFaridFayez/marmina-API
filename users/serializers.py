@@ -19,6 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'email',
+            'password',
             'last_login',
             'is_staff',
             'is_active',
@@ -26,3 +27,10 @@ class UserSerializer(serializers.ModelSerializer):
             'password_change_date',
             'is_blocked'
         ]
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        user = CustomUser(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user

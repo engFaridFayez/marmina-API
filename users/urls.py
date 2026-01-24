@@ -19,7 +19,6 @@ urlpatterns = [
     path('users/update-activity-status',UpdateUserStatusView.as_view(),name='update_activity_status'),
     path('users/update-user-info',UpdateUserInfo.as_view(),name='update_user_info'),
     path('users/admin-reset-login-attempts',ResetLoginView.as_view(),name='unblock'),
-    path('users/delete',DeleteUserView.as_view(),name='delete_user'),
     path('users/admin-reset-password',AdminResetUserPassword.as_view(),name='admin-reset-password'),
     path('users/user-reset-password',UserUpdatePassword.as_view(),name='user-reset-password')
 
