@@ -27,6 +27,9 @@ class UserSerializer(serializers.ModelSerializer):
             'password_change_date',
             'is_blocked'
         ]
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
 
     def create(self, validated_data):
         password = validated_data.pop('password')
