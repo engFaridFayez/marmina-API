@@ -7,17 +7,25 @@ from rest_framework.viewsets import ModelViewSet
 from django.core.exceptions import ValidationError
 from axes.utils import reset
 from django.contrib.auth.password_validation import validate_password
+from rest_framework.generics import ListAPIView , UpdateAPIView
 
 from users.models import CustomUser
-from users.serializers import UserSerializer
+from users.serializers import RegisterSerializer, UserSerializer
 
 logger = logging.getLogger(__name__)
 
-class UsersView(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
-    serializer_class = UserSerializer
+class UsersList(ListAPIView):
     queryset = CustomUser.objects.all()
-    paginator = None
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+
+
+class UpdateUser(UpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+
 
 class UpdateUserInfo(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -88,42 +96,31 @@ class DeleteUserView(APIView):
 class NewUserView(APIView):
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
-    def post(self, request, format=None):
-        data = request.data
+    def post(self,request):
 
-        try:
-            user = CustomUser(
-                username=data['username'],
-                first_name=data.get('first_name', ''),
-                last_name=data.get('last_name', ''),
-                email=data.get('email', ''),
-                is_staff=data.get('is_staff', False),
-                is_active=True,
-                required_password_change=True,
-                password_change_date=timezone.now()
-            )
+        username = request.data.get("username")
+        password = request.data.get("password")
+        confirm_password = request.data.get("confirm_password")
 
-            validate_password(data['password'], user)
-            user.set_password(data['password'])
-            user.save()
+        if not confirm_password:
+            return Response({"message":"Confirm password shouldn't be blank"},status=400)
 
-        except ValidationError as e:
-            return Response(
-                {"errors": e.messages},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+        if password != confirm_password:
+            return Response({"message":"Password and confirm pasword should be the same"},status=400)
 
-        except Exception as e:
-            error_message = CustomUser._meta.get_field('username').error_messages['unique']
-            return Response(
-                {'error': error_message},
-                status=status.HTTP_406_NOT_ACCEPTABLE
-            )
-
-        return Response(
-            UserSerializer(user).data,
-            status=status.HTTP_201_CREATED
+        if not username:
+            return Response({"message":"username must be provided"},status=400)
+        if not password:
+            return Response({"message":"password must be provided"},status=400)
+        
+        new_user = CustomUser.objects.create_user(
+            username = username,
+            password = password,
         )
+
+        serializer = RegisterSerializer(new_user)
+
+        return Response({"message":"User Created Successfully","user":serializer.data},status=200)
 
     
 class DeleteUserView(APIView):
