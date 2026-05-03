@@ -5,13 +5,13 @@ from users.models import CustomUser
 
 # Create your models here.
 
-ROLE = {
+ROLE = [
     ('خادم عادي','خادم عادي'),
     ('امين مساعد اسرة','امين مساعد اسره'),
     ('امين اسرة','امين اسرة'),
     ('امين مرحلة','امين مرحلة'),
     ('امين الشمامسة','امين الشمامسة'),
-}
+]
 
 class Stage(models.Model):
     name = models.CharField(max_length=50,unique=True)

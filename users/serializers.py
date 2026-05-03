@@ -62,7 +62,8 @@ class UserSerializer(serializers.ModelSerializer):
             'is_active',
             'required_password_change',
             'password_change_date',
-            'is_blocked'
+            'is_blocked',
+            'role'
         ]
         extra_kwargs = {
             'password': {'write_only': True}

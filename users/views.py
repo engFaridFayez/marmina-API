@@ -25,7 +25,12 @@ class UpdateUser(UpdateAPIView):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
+class Me(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
+    def get(self,request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)
 
 class UpdateUserInfo(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -160,25 +165,7 @@ class ResetLoginView(APIView):
         return Response({"User Unblocked"},status=status.HTTP_200_OK)
     
 
-class AdminResetUserPassword(APIView):
-    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
 
-    def post(self,request):
-        if not request.user.is_staff:
-            return Response({'response':"User is not an admin"},status=status.HTTP_401_UNAUTHORIZED)
-        data = request.data
-        new_password = data['new_passwd']
-        target_user = data['target_user']
-
-        validate_password(new_password,target_user)
-        user = CustomUser.objects.get(username=target_user)
-        user.required_password_change = False
-        user.password_change_date = timezone.now()
-        user.set_password(new_password)
-        user.save()
-
-        return Response({'response':"Success!!!!!"},status=status.HTTP_200_OK)
-    
 class UserUpdatePassword(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
@@ -202,3 +189,82 @@ class UserUpdatePassword(APIView):
         user.save()
 
         return Response({'response':"Success!!!!!"},status=status.HTTP_200_OK)
+    
+
+class AdminResetUserPassword(APIView):
+    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+
+    def post(self,request):
+        if not request.user.is_staff:
+            return Response({'response':"User is not an admin"},status=status.HTTP_401_UNAUTHORIZED)
+        data = request.data
+        new_password = data['new_passwd']
+        target_user = data['target_user']
+
+        validate_password(new_password,target_user)
+        user = CustomUser.objects.get(username=target_user)
+        user.required_password_change = False
+        user.password_change_date = timezone.now()
+        user.set_password(new_password)
+        user.save()
+
+        return Response({'response':"Success!!!!!"},status=status.HTTP_200_OK)
+    
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status, permissions
+
+from users.models import CustomUser
+
+
+class ManageUserRoles(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def patch(self, request):
+        new_role = request.data.get('role')
+        target_username = request.data.get('user')
+
+        # 🔴 Validation: البيانات موجودة؟
+        if not new_role or not target_username:
+            return Response(
+                {'error': 'role and user are required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # 🔴 Validation: المستخدم موجود؟
+        try:
+            user = CustomUser.objects.get(username=target_username)
+        except CustomUser.DoesNotExist:
+            return Response(
+                {'error': 'User not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        # 🔴 Validation: الرول صح؟
+        valid_roles = [choice[0] for choice in CustomUser._meta.get_field('role').choices]
+
+        if new_role not in valid_roles:
+            return Response(
+                {
+                    'error': 'Invalid role',
+                    'valid_roles': valid_roles
+                },
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # 🔴 (اختياري) منع تغيير نفسك مثلاً
+        # لو مش عايز اليوزر يغير رول نفسه:
+        if request.user.username == target_username:
+            return Response(
+                {'error': 'You cannot change your own role'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        # ✅ تحديث الرول
+        user.role = new_role
+        user.save()
+
+        return Response(
+            {'message': 'Role updated successfully'},
+            status=status.HTTP_200_OK
+        )

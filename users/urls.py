@@ -10,6 +10,7 @@ from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     path('users/',views.UsersList.as_view(),name='new_user'),
+    path('me/',views.Me.as_view(),name='current_user'),
     path('users/new/',views.NewUserView.as_view(),name='new_user'),
     path('token/',CustomTokenObtainPairView.as_view(),name='token_obtain_pair'),
     path('users/delete/',views.DeleteUserView.as_view(),name='delete_user'),
@@ -18,7 +19,8 @@ urlpatterns = [
     path('users/update-user-info/',views.UpdateUserInfo.as_view(),name='update_user_info'),
     path('users/admin-reset-login-attempts/',views.ResetLoginView.as_view(),name='unblock'),
     path('users/admin-reset-password/',views.AdminResetUserPassword.as_view(),name='admin-reset-password'),
-    path('users/user-reset-password/',views.UserUpdatePassword.as_view(),name='user-reset-password')
+    path('users/user-reset-password/',views.UserUpdatePassword.as_view(),name='user-reset-password'),
+    path('users/change-user-role/',views.ManageUserRoles.as_view(),name='manage-user-role'),
 
 
 ]
