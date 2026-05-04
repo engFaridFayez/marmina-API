@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
+from api import settings
 
 urlpatterns = [
     path('api/',include('users.urls')),
     path('api/',include('stages.urls')),
     path('api/drive/',include('drive.urls')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

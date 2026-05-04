@@ -63,7 +63,8 @@ class UserSerializer(serializers.ModelSerializer):
             'required_password_change',
             'password_change_date',
             'is_blocked',
-            'role'
+            'role',
+            'image'
         ]
         extra_kwargs = {
             'password': {'write_only': True}
@@ -102,7 +103,7 @@ class UserSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         password = validated_data.pop('password', None)
         validated_data.pop('confirm_password', None)
-        products = validated_data.pop('products', None)
+
 
         # update fields
         for attr, value in validated_data.items():
@@ -113,10 +114,6 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
 
         instance.save()
-
-        # update products only if sent
-        if products is not None:
-            instance.products.set(products)
 
         return instance
         

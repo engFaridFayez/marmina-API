@@ -8,6 +8,7 @@ from django.core.exceptions import ValidationError
 from axes.utils import reset
 from django.contrib.auth.password_validation import validate_password
 from rest_framework.generics import ListAPIView , UpdateAPIView
+from rest_framework.parsers import MultiPartParser, FormParser
 
 from users.models import CustomUser
 from users.serializers import RegisterSerializer, UserSerializer
@@ -29,37 +30,100 @@ class Me(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self,request):
-        serializer = UserSerializer(request.user)
+        serializer = UserSerializer(request.user,context={"request":request})
         return Response(serializer.data)
 
-class UpdateUserInfo(APIView):
+class UpdateMyProfile(APIView):
     permission_classes = [permissions.IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
 
-    def put(self,request):
+    def patch(self,request):
+        print("USER:", request.user)
+        print("TYPE:", type(request.user))
+        user = request.user
         data = request.data
-        if self.checkif_request_field_valid(request,"username"):
-            request.user.username = data["username"]
-        if self.checkif_request_field_valid(request,"first_name"):
-            request.user.first_name = data["first_name"]
-        if self.checkif_request_field_valid(request,"last_name"):
-            request.user.last_name = data["last_name"]
-        if self.checkif_request_field_valid(request,"email"):
-            request.user.email = data["email"]
+
+        if "username" in data:
+            user.username = data["username"]
+
+        if "first_name" in data:
+            user.first_name = data["first_name"]
+
+        if "last_name" in data:
+            user.last_name = data["last_name"]
+
+        if "email" in data:
+            user.email = data["email"]
+
+        if "image" in request.FILES:
+            user.image = request.FILES["image"]
 
         try:
-            request.user.save()
-        except Exception:
-            error_message = CustomUser._meta.get_field('username').error_messages['unique']
-            return Response({'error':error_message},status=status.HTTP_406_NOT_ACCEPTABLE)
+            user.save()
+        except Exception as e:
+            return Response(
+                {"error": str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
         
-        return Response({"Updated!"},status=status.HTTP_200_OK)
-
-    def checkif_request_field_valid(self,request,field_name):
-        if field_name in request.data and request.data[field_name] and request.data[field_name] != "":
-            return True
-        return False
+        return Response({
+            "message": "Profile updated successfully",
+            "user": {
+                "username": user.username,
+                "email": user.email,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "image": user.image.url if user.image else None,
+            }
+        }, status=status.HTTP_200_OK)
     
+class AdminUpdateUser(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
+    def patch(self,request,user_id):
+        if not request.user.is_staff:
+            return Response(
+                {"error": "Not allowed"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        try:
+            user = CustomUser.objects.get(id=user_id)
+        except user.DoesNotExist:
+            return Response({
+                "error":"User Not Found"
+            },status=status.HTTP_404_NOT_FOUND)
+        
+        data = request.data
+
+        if "username" in data:
+            user.username = data["username"]
+
+        if "first_name" in data:
+            user.first_name = data["first_name"]
+
+        if "last_name" in data:
+            user.last_name = data["last_name"]
+
+        if "email" in data:
+            user.email = data["email"]
+
+        if "role" in data:
+            user.role = data["role"]
+
+        if "image" in request.FILES:
+            user.image = request.FILES["image"]
+
+        user.save()
+
+        return Response({
+            "message": "User updated by admin",
+            "user": {
+                "id": user.id,
+                "username": user.username,
+                "role": user.role,
+            }
+        }, status=status.HTTP_200_OK)
 class DeactivateUserView(APIView):
     permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
 
@@ -210,13 +274,6 @@ class AdminResetUserPassword(APIView):
 
         return Response({'response':"Success!!!!!"},status=status.HTTP_200_OK)
     
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status, permissions
-
-from users.models import CustomUser
-
-
 class ManageUserRoles(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
