@@ -5,7 +5,6 @@ from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-
 ROLES = [
     ('مخدوم','مخدوم'),
     ('خادم عادي','خادم عادي'),
@@ -18,7 +17,16 @@ ROLES = [
 def upload_path(instance,filename):
     return os.path.join('images','avatars',str(instance.username),filename)
 class CustomUser(AbstractUser):
-    required_password_change = models.BooleanField(default=False)
-    role = models.CharField(choices=ROLES,default="مخدوم")
-    password_change_date = models.DateTimeField(_('Password change date'),default=timezone.now)
+    full_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=500)
+    phone = models.CharField(max_length=20)
+    whatsapp = models.CharField(max_length=20,null=True,blank=True)
+    father = models.CharField(max_length=30)
+    age = models.IntegerField()
+    joined_date = models.DateField()
+    birth_date = models.DateField()
+    parent_phone = models.CharField(max_length=20,null=True,blank=True)
+    role = models.CharField(max_length=50,choices=ROLES,default="مخدوم")
     image = models.ImageField(upload_to=upload_path,blank=True,null=True)
+    slogan = models.CharField(max_length=100, default="شاطر")
+    family = models.ForeignKey("stages.Family",on_delete=models.SET_NULL,null=True,blank=True)
