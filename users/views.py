@@ -247,8 +247,6 @@ class UserUpdatePassword(APIView):
         except ValidationError as e:
             return Response({"errors":e.error_list},status=status.HTTP_403_FORBIDDEN)
         
-        user.required_password_change = False
-        user.password_change_date = timezone.now()
         user.set_password(new_password)
         user.save()
 
@@ -267,8 +265,6 @@ class AdminResetUserPassword(APIView):
 
         validate_password(new_password,target_user)
         user = CustomUser.objects.get(username=target_user)
-        user.required_password_change = False
-        user.password_change_date = timezone.now()
         user.set_password(new_password)
         user.save()
 

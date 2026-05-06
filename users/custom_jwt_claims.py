@@ -13,19 +13,12 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         user_logged_in.send(sender=self.user.__class__,request=self.context['request'],user=self.user)
         refresh = self.get_token(self.user)
 
-        diff = (timezone.now() - self.user.password_change_date)
-        time_diff = diff.days
-        
-        if(time_diff >= 90):
-            self.user.required_password_change = True
-            self.user.save()
-
         data['refresh'] = str(refresh)
         data['access'] = str(refresh.access_token)
 
         data['is_admin'] = self.user.is_staff
+        data['full_name'] = self.user.full_name
         data['is_active'] = self.user.is_active
-        data['requires_reset'] = self.user.required_password_change
         data['username'] = self.user.username
         data['first_name'] = self.user.first_name
         data['last_name']= self.user.last_name
