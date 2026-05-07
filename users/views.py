@@ -10,17 +10,123 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework.generics import ListAPIView , UpdateAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
 
+from stages.models import Family, Stage
+from stages.serializers import FamilySerializer, StageSerializer
 from users.models import CustomUser
 from users.serializers import RegisterSerializer, UserSerializer
 
 logger = logging.getLogger(__name__)
 
 class UsersList(ListAPIView):
-    queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
 
+        user = self.request.user
+
+        queryset = CustomUser.objects.select_related(
+            'family',
+            'family__stage'
+        )
+
+        # -------------------------
+        # Admin يشوف الكل
+        # -------------------------
+        if user.is_superuser or user.is_staff:
+            pass
+
+        # -------------------------
+        # أمين مرحلة يشوف مرحلته فقط
+        # -------------------------
+        elif user.role == "امين مرحلة":
+
+            queryset = queryset.filter(
+                family__stage__leaders=user
+            )
+
+        elif user.family:
+            queryset = queryset.filter(
+                family = user.family
+            )
+
+        # -------------------------
+        # أي حد تاني يشوف نفسه فقط
+        # -------------------------
+        else:
+            queryset = queryset.filter(id=user.id)
+
+        # -------------------------
+        # فلترة بالأسرة
+        # -------------------------
+        family_id = self.request.query_params.get('family')
+
+        if family_id:
+            queryset = queryset.filter(
+                family_id=family_id
+            )
+
+        return queryset.distinct()
+class FamilyList(ListAPIView):
+    serializer_class = FamilySerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+
+        user = self.request.user
+
+        queryset = Family.objects.select_related('stage')
+
+        # Admin
+        if user.is_superuser or user.is_staff:
+            return queryset
+
+        # أمين مرحلة
+        if user.role == "امين مرحلة":
+            return queryset.filter(
+                stage__leaders=user
+            ).distinct()
+
+        # باقي المستخدمين
+        if user.family:
+            return queryset.filter(id=user.family.id)
+
+        return Family.objects.none()
+    
+class FamilyViewSet(ModelViewSet):
+    queryset = Family.objects.all()
+    serializer_class = FamilySerializer
+
+class StageList(ListAPIView):
+    serializer_class = StageSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+
+        user = self.request.user
+
+        queryset = Stage.objects.prefetch_related(
+            'families',
+            'leaders'
+        )
+
+        # Admin
+        if user.is_superuser or user.is_staff:
+            return queryset
+
+        # أمين مرحلة
+        if user.role == "امين مرحلة":
+            return queryset.filter(
+                leaders=user
+            )
+
+        # باقي المستخدمين
+        if user.family and user.family.stage:
+            return queryset.filter(
+                id=user.family.stage.id
+            )
+
+        return Stage.objects.none()
 class UpdateUser(UpdateAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer

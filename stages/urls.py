@@ -5,8 +5,8 @@ from stages import views
 
 
 router = DefaultRouter()
-router.register('families',views.FamilyViewSet,basename='families')
-router.register('stages',views.StageViewSet,basename='stages')
+# router.register('families',views.FamilyViewSet,basename='families')
+# router.register('stages',views.StageViewSet,basename='stages')
 
 
 urlpatterns = [
