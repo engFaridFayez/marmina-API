@@ -42,11 +42,19 @@ class Command(BaseCommand):
 
             # ✅ get stage
             if pd.notna(stage_name):
-                stage = Stage.objects.filter(name=stage_name).first()
+                stage = Stage.objects.filter(name=stage_name.strip()).first()
+                if not stage:
+                    self.stdout.write(self.style.WARNING(
+                        f"Row {i}: stage مش موجودة في الداتابيز: '{stage_name}'"
+                    ))
 
             # ✅ get family
             if pd.notna(family_name):
-                family = Family.objects.filter(name=family_name).first()
+                family = Family.objects.filter(name=family_name.strip()).first()
+                if not family:
+                    self.stdout.write(self.style.WARNING(
+                        f"Row {i}: family مش موجودة في الداتابيز: '{family_name}'"
+                    ))
 
             # 🔥 validation حسب role
             if role in ["مخدوم", "خادم عادي", "امين اسرة"] and not family:

@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from users.models import CustomUser
 from .models import Stage, Family
 
 
@@ -34,3 +36,30 @@ class StageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stage
         fields = ['id', 'name', 'families']
+
+
+# Check✅✅
+class FamilyMiniSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = Family
+        fields = ["id", "name"]
+
+class FamilyUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ["id", "full_name", "role"]
+
+class FamilyDetailSerializer(serializers.ModelSerializer):
+    users = FamilyUserSerializer(
+        source="customuser_set",
+        many=True,
+        read_only=True
+    )
+    class Meta:
+        model = Family
+        fields = [
+            "id",
+            "name",
+            "year",
+            "users"
+        ]

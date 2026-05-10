@@ -1,8 +1,22 @@
 from rest_framework import serializers
-from stages.serializers import FamilySerializer
+from stages.serializers import FamilyMiniSerializer
 from users.models import CustomUser
 from axes.handlers.proxy import AxesProxyHandler
 
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = [
+            'full_name',
+            'first_name',
+            'last_name',
+            'email',
+            'image',
+            'address',
+            'phone',
+            'father',
+        ]
 
 class RegisterSerializer(serializers.ModelSerializer):
 
@@ -38,25 +52,20 @@ class RegisterSerializer(serializers.ModelSerializer):
             return user
 
 
-from rest_framework import serializers
-from .models import CustomUser
-from axes.handlers.proxy import AxesProxyHandler
-
-
 class UserSerializer(serializers.ModelSerializer):
-    family = serializers.SerializerMethodField()
+    family = FamilyMiniSerializer()
     is_blocked = serializers.SerializerMethodField()
     password = serializers.CharField(required=False, write_only=True)
     confirm_password = serializers.CharField(required=False, write_only=True)
 
-    def get_family(self, obj):
-        # ← skip family if we're already nested inside FamilySerializer
-        if self.context.get('exclude_family'):
-            return None
-        from stages.serializers import FamilySerializer  # lazy import
-        if obj.family is None:
-            return None
-        return FamilySerializer(obj.family, context=self.context).data
+    # def get_family(self, obj):
+    #     # ← skip family if we're already nested inside FamilySerializer
+    #     if self.context.get('exclude_family'):
+    #         return None
+    #     from stages.serializers import FamilySerializer  # lazy import
+    #     if obj.family is None:
+    #         return None
+    #     return FamilySerializer(obj.family, context=self.context).data
 
     def get_is_blocked(self, obj):
         request = self.context.get('request')
