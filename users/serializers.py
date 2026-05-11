@@ -1,21 +1,31 @@
 from rest_framework import serializers
-from stages.serializers import FamilyMiniSerializer
+from stages.serializers import FamilyMiniSerializer, StageMiniSerializer
 from users.models import CustomUser
 from axes.handlers.proxy import AxesProxyHandler
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    family = FamilyMiniSerializer()
     class Meta:
         model = CustomUser
         fields = [
+            'username',
             'full_name',
             'first_name',
             'last_name',
+            'birth_date',
+            'joined_date',
             'email',
             'image',
             'address',
             'phone',
             'father',
+            'role',
+            'family',
+            'slogan',
+            'parent_phone',
+            'whatsapp',
+
         ]
 
 class RegisterSerializer(serializers.ModelSerializer):

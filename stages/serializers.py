@@ -38,11 +38,17 @@ class StageSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'families']
 
 
-# Check✅✅
-class FamilyMiniSerializer(serializers.ModelSerializer): 
+class StageMiniSerializer(serializers.ModelSerializer): 
     class Meta:
         model = Family
         fields = ["id", "name"]
+
+
+
+class FamilyMiniSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = Family
+        fields = ["id", "name",'year']
 
 class FamilyUserSerializer(serializers.ModelSerializer):
     class Meta:

@@ -56,7 +56,7 @@ class Me(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self,request):
-        serializer = UserSerializer(request.user,context={"request":request})
+        serializer = ProfileSerializer(request.user,context={"request":request})
         return Response(serializer.data)
 
 class NewUserView(APIView):
