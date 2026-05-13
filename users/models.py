@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 ROLES = [
+    ('admin','admin'),
     ('مخدوم','مخدوم'),
     ('خادم عادي','خادم عادي'),
     ('امين مساعد اسرة','امين مساعد اسره'),
