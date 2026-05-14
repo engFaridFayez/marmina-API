@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'stages',
     'results',
+    'attendance',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
