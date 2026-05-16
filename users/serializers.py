@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from stages.models import Family
 from stages.serializers import FamilyMiniSerializer, StageMiniSerializer
 from users.models import CustomUser
 from axes.handlers.proxy import AxesProxyHandler
@@ -63,7 +64,11 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    family = FamilyMiniSerializer()
+    family = serializers.PrimaryKeyRelatedField(
+    queryset=Family.objects.all(),
+    required=False,
+    allow_null=True
+)
     is_blocked = serializers.SerializerMethodField()
     password = serializers.CharField(required=False, write_only=True)
     confirm_password = serializers.CharField(required=False, write_only=True)
@@ -88,19 +93,25 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'username',
-            'first_name',
-            'last_name',
             'full_name',
-            'email',
             'password',
             'confirm_password',
+            'address',     
+            'phone',       
+            'whatsapp',    
+            'father',      
+            'birth_date',  
+            'joined_date', 
+            'parent_phone',
+            'role',
+            'family',
+            'image',
+            'email',
             'last_login',
             'is_staff',
             'is_active',
             'is_blocked',
-            'role',
-            'image',
-            'family',
+            'slogan',
         ]
         extra_kwargs = {
             'password': {'write_only': True}
@@ -126,6 +137,15 @@ class UserSerializer(serializers.ModelSerializer):
                 })
 
         return data
+    
+    def validate_username(self, value):
+        qs = CustomUser.objects.filter(username=value)
+        # If editing, exclude the current instance from the check
+        if self.instance:
+            qs = qs.exclude(pk=self.instance.pk)
+        if qs.exists():
+            raise serializers.ValidationError("A user with that username already exists.")
+        return value
 
     def create(self, validated_data):
         validated_data.pop('confirm_password', None)

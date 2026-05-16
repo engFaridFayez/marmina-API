@@ -1,17 +1,16 @@
 from django.db import models
 
-from users.models import CustomUser
-
 
 # Create your models here.
 
 class Stage(models.Model):
-    name = models.CharField(max_length=50,unique=True)
+    name = models.CharField(max_length=50, unique=True)
+
     leaders = models.ManyToManyField(
-    "users.CustomUser",
-    blank=True,
-    related_name="managed_stages"
-)
+        "users.CustomUser",
+        blank=True,
+        related_name="managed_stages"
+    )
 
     def __str__(self):
         return self.name

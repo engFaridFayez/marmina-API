@@ -31,3 +31,13 @@ class CustomUser(AbstractUser):
     image = models.ImageField(upload_to=upload_path,blank=True,null=True)
     slogan = models.CharField(max_length=100, default="شاطر",null=True,blank=True)
     family = models.ForeignKey("stages.Family",on_delete=models.SET_NULL,null=True,blank=True)
+
+
+
+class StageLeader(models.Model):
+    stage = models.ForeignKey("stages.Stage", on_delete=models.DO_NOTHING, db_column="stage_id")
+    customuser = models.ForeignKey("users.CustomUser", on_delete=models.DO_NOTHING, db_column="customuser_id")
+
+    class Meta:
+        db_table = "stages_stage_leaders"
+        managed = False

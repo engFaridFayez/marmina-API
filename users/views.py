@@ -5,9 +5,12 @@ from rest_framework.views import APIView
 from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
 from rest_framework.generics import ListAPIView
-from rest_framework.parsers import MultiPartParser, FormParser
-from users.models import CustomUser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
+from stages.models import Stage
+from users.models import CustomUser, StageLeader
+from users.permissions import IsHead
 from users.serializers import ProfileSerializer, RegisterSerializer, UserSerializer
+from rest_framework.generics import RetrieveAPIView
 
 logger = logging.getLogger(__name__)
 
@@ -59,36 +62,27 @@ class Me(APIView):
         serializer = ProfileSerializer(request.user,context={"request":request})
         return Response(serializer.data)
 
+class GetSingleUserView(RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'id'
+
 class NewUserView(APIView):
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
-    def post(self,request):
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
 
-        username = request.data.get("username")
-        password = request.data.get("password")
-        confirm_password = request.data.get("confirm_password")
+        if serializer.is_valid():
+            user = serializer.save()
 
-        if not confirm_password:
-            return Response({"message":"Confirm password shouldn't be blank"},status=400)
+            return Response({
+                "message": "User Created Successfully",
+                "user": UserSerializer(user).data
+            }, status=201)
 
-        if password != confirm_password:
-            return Response({"message":"Password and confirm pasword should be the same"},status=400)
-
-        if not username:
-            return Response({"message":"username must be provided"},status=400)
-        if not password:
-            return Response({"message":"password must be provided"},status=400)
-        
-        new_user = CustomUser.objects.create_user(
-            username = username,
-            password = password,
-        )
-
-        serializer = RegisterSerializer(new_user)
-
-        return Response({"message":"User Created Successfully","user":serializer.data},status=200)
-
-
+        return Response(serializer.errors, status=400)
 class DeleteUserView(APIView):
     permission_classes = [permissions.IsAuthenticated ,permissions.IsAdminUser]
 
@@ -103,7 +97,7 @@ class UpdateUserStatusView(APIView):
 
     def post(self,request):
         data = request.data
-        user = CustomUser.objects.get(username=data['username'])
+        user = CustomUser.objects.get(pk=data['id'])
         if user.is_active == False:
             user.is_active = True
         else:
@@ -135,7 +129,7 @@ class UpdateMyProfile(APIView):
         return Response(serializer.errors, status=400)
 class AdminUpdateUser(APIView):
     permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
-    parser_classes = [MultiPartParser, FormParser]
+    parser_classes = [MultiPartParser, FormParser, JSONParser] 
 
 
     def patch(self,request,user_id):
@@ -164,22 +158,41 @@ class AdminUpdateUser(APIView):
         
         return Response(serializer.errors, status=400)
 class AdminResetUserPassword(APIView):
-    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
-    def post(self,request):
-        if not request.user.is_staff:
-            return Response({'response':"User is not an admin"},status=status.HTTP_401_UNAUTHORIZED)
-        data = request.data
-        new_password = data['new_password']
-        target_user = data['target_user']
+    def post(self, request):
+        target_user_id = request.data.get("target_user")
+        new_password = request.data.get("new_password")
 
-        validate_password(new_password,target_user)
-        user = CustomUser.objects.get(username=target_user)
+        if not target_user_id or not new_password:
+            return Response(
+                {"response": "Missing data"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            user = CustomUser.objects.get(pk=target_user_id)
+        except CustomUser.DoesNotExist:
+            return Response(
+                {"response": "User not found"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        try:
+            validate_password(new_password, user)
+        except Exception as e:
+            return Response(
+                {"response": list(e.messages)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         user.set_password(new_password)
         user.save()
 
-        return Response({'response':"Password Changesd Successfully!"},status=status.HTTP_200_OK)
-
+        return Response(
+            {"response": "Password changed successfully"},
+            status=status.HTTP_200_OK
+        )
 class UserUpdatePassword(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
@@ -255,7 +268,34 @@ class ManageUserRoles(APIView):
     
 
 
+class UpdateStageLeader(APIView):
+    permission_classes = [IsHead,permissions.IsAdminUser]
 
+    def patch(self,request):
+        user = request.user
+        stage_id = request.data.get("stage")
+        leader_id = request.data.get("leader")
+        
+        if not stage_id or not leader_id:
+            return Response(
+                {"error": "stage and leader are required"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        try:
+            stage = Stage.objects.get(id=stage_id)
+            leader = CustomUser.objects.get(id=leader_id)
+        except Stage.DoesNotExist:
+            return Response({"error": "Stage not found"}, status=404)
+        except CustomUser.DoesNotExist:
+            return Response({"error": "Leader not found"}, status=404)
+        
+        obj, created = StageLeader.objects.update_or_create(
+            stage = stage,
+            defaults={"customuser":leader}
+        )
+        return Response({
+            "message": "Leader updated successfully"
+        })
 
 
 
