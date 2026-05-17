@@ -3,6 +3,11 @@ from rest_framework import serializers
 from users.models import CustomUser
 from .models import Stage, Family
 
+class StageMiniSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = Stage
+        fields = ["id", "name"]
+
 
 class FamilySerializer(serializers.ModelSerializer):
     user_count = serializers.IntegerField(
@@ -10,6 +15,7 @@ class FamilySerializer(serializers.ModelSerializer):
         read_only=True
     )
     users = serializers.SerializerMethodField()
+    stage = StageMiniSerializer(read_only=True)
 
     class Meta:
         model = Family
@@ -19,6 +25,7 @@ class FamilySerializer(serializers.ModelSerializer):
             'year',
             'user_count',
             'users',
+            'stage'
         ]
 
     def get_users(self, obj):
@@ -37,11 +44,6 @@ class StageSerializer(serializers.ModelSerializer):
         model = Stage
         fields = ['id', 'name', 'families']
 
-
-class StageMiniSerializer(serializers.ModelSerializer): 
-    class Meta:
-        model = Family
-        fields = ["id", "name"]
 
 
 

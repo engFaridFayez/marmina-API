@@ -8,7 +8,7 @@ from rest_framework.generics import ListAPIView
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from stages.models import Stage
 from users.models import CustomUser, StageLeader
-from users.permissions import IsHead
+from users.permissions import CanCreateUser, IsFamilyLeader, IsHead, IsStageLeader
 from users.serializers import ProfileSerializer, RegisterSerializer, UserSerializer
 from rest_framework.generics import RetrieveAPIView
 
@@ -69,7 +69,7 @@ class GetSingleUserView(RetrieveAPIView):
     lookup_field = 'id'
 
 class NewUserView(APIView):
-    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+    permission_classes = [CanCreateUser]
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
