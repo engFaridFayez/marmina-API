@@ -44,3 +44,39 @@ def get_folder_id_by_name(parent_id, folder_name):
 
     folders = result.get('files', [])
     return folders[0]['id'] if folders else None
+
+
+# NEW
+
+def get_all_audio_files(service, folder_id):
+    results = []
+
+    query = f"'{folder_id}' in parents and trashed=false"
+
+    response = service.files().list(
+        q=query,
+        fields="files(id, name, mimeType)"
+    ).execute()
+
+    items = response.get("files", [])
+
+    for item in items:
+
+        # 📁 لو فولدر
+        if item["mimeType"] == "application/vnd.google-apps.folder":
+            results.append({
+                "type": "folder",
+                "id": item["id"],
+                "name": item["name"],
+                "alhan": get_all_audio_files(service, item["id"])  # recursion
+            })
+
+        # 🎵 لو ملف صوت
+        elif "audio" in item["mimeType"]:
+            results.append({
+                "type": "audio",
+                "id": item["id"],
+                "name": item["name"]
+            })
+
+    return results
