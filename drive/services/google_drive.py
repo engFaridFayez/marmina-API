@@ -30,22 +30,6 @@ def get_audio_files(folder_id):
 
     return results.get('files', [])
 
-def get_folder_id_by_name(parent_id, folder_name):
-    service = get_drive_service()
-
-    result = service.files().list(
-        q=(
-          f"'{parent_id}' in parents "
-          f"and name='{folder_name}' "
-          f"and mimeType='application/vnd.google-apps.folder'"
-        ),
-        fields="files(id, name)"
-    ).execute()
-
-    folders = result.get('files', [])
-    return folders[0]['id'] if folders else None
-
-
 # NEW
 
 def get_all_audio_files(service, folder_id):
@@ -62,7 +46,6 @@ def get_all_audio_files(service, folder_id):
 
     for item in items:
 
-        # 📁 لو فولدر
         if item["mimeType"] == "application/vnd.google-apps.folder":
             results.append({
                 "type": "folder",
@@ -71,7 +54,6 @@ def get_all_audio_files(service, folder_id):
                 "alhan": get_all_audio_files(service, item["id"])  # recursion
             })
 
-        # 🎵 لو ملف صوت
         elif "audio" in item["mimeType"]:
             results.append({
                 "type": "audio",
