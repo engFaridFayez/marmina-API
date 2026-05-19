@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 from datetime import timedelta
+from urllib.parse import urlparse
 from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,12 +32,14 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "marmina-client-new-8ljw.vercel.app",
     ".vercel.app",
+    ".onrender.com",
 ]
 CORS_ALLOWED_ORIGINS = [
     "https://marmina-client-new-8ljw.vercel.app"
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://.*\.vercel\.app$",
+    r"^https://.*\.onrender\.com$",
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://marmina-client-new-8ljw.vercel.app",
@@ -121,14 +124,23 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+from dotenv import load_dotenv
+load_dotenv()
+db_url = os.environ.get('DATABASE_URL', '')
+parsed = urlparse(db_url)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': parsed.path.lstrip('/'), 
+        'USER': parsed.username,                 
+        'PASSWORD': parsed.password,             
+        'HOST': parsed.hostname,
+        'PORT': parsed.port or 5432,
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
-
 AXES_FAILURE_LIMIT = 3
 AXES_RESET_ON_SUCCESS = True
 

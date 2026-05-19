@@ -1,0 +1,4907 @@
+[
+{
+  "model": "users.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$UkgzZQBQRHemWbsqvOsbcZ$bN0huUyHuM07Tcy2l8KV6dLDVdkT0St1xoTrwNpdPfU=",
+    "last_login": "2026-05-13T13:51:56.090Z",
+    "is_superuser": false,
+    "username": "D27-0001",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:06.091Z",
+    "full_name": "محمد محمد محمد",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "images/avatars/D27-0001/Gemini_Generated_Image_w75ofiw75ofiw75o_zK9Zhn3.png",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$4NlULtFO5boaCal0IIpAtU$i53YbJhl2zMyHfUEyt/sS3qnI2s9ZUc07426wp9exLs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0002",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:08.523Z",
+    "full_name": "محمود حسن إبراهيم",
+    "address": "",
+    "phone": "1023456789",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$dvhsNJ0GWIFQV4CFXkffzg$80D7eXiB53VI8uiNVFr/yCQVZpidVLSZC9ve9RiBBxM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0003",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:10.718Z",
+    "full_name": "أحمد مصطفى محمود",
+    "address": "",
+    "phone": "1034567890",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$hKVej9kglhv6T0qJWywVP4$Dl9xVzp+onujGWWS3e5Dplvec8pDK8wNwXJnvBQgm44=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0004",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:12.474Z",
+    "full_name": "يوسف خالد عبد الله",
+    "address": "",
+    "phone": "1112345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$zYKR4zX8SrwlMdISi0PizG$+jtQ+AJDnrqMPTqGVioGrBKC4CJnloZHfW2JVc4TM5U=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0005",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:14.346Z",
+    "full_name": "عمر سامي حسين",
+    "address": "",
+    "phone": "1123456789",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$IyRfccWmyifKpO9aj5LBKw$ZwGhW/8v4S1ekoFphAZsLCJY+Uydj6frijE/8+yvouU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0006",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:17.055Z",
+    "full_name": "كريم طارق عبد الرحمن",
+    "address": "",
+    "phone": "1134567890",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$48eI463ujhREduLenPkLoK$/PjmCWVxmESFbrYY3hl9co4d2LcGv/iYnvmzpT4L7y4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0007",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:20.030Z",
+    "full_name": "عبد الله محمد حسن",
+    "address": "",
+    "phone": "1212345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$LiSddqOsME6ous6ic20vTL$kRsbvH8ZEp11QTjNkSS1Sq7UOYR3ic7NL4DKCsJrHbk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0008",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:22.054Z",
+    "full_name": "مينا فؤاد جرجس",
+    "address": "",
+    "phone": "1223456789",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$xxv7Fh6G2Q7Xyz4jhYoD2w$YHbWHO9XjkQOxHkpIWTwCrw98U+h3hT/KilbybjtEUM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0009",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:24.038Z",
+    "full_name": "بيتر مجدي كامل",
+    "address": "",
+    "phone": "1234567890",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$1odXeZXpwfYBjq3JWMRZVJ$UHKtzGu0VGwbmQYaochppQ5CMXPbBwnWfLCurnJ8Npo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0010",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:26.098Z",
+    "full_name": "جورج سامح فؤاد",
+    "address": "",
+    "phone": "1512345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$w3hjqHmoYhKHrLyjvnDmZt$CBGA/IKXz/bE8CXDK1m7WXsQMdsTte+tg3PIs1/Hwf4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0011",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:28.622Z",
+    "full_name": "شادي نبيل عادل",
+    "address": "",
+    "phone": "1523456789",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$EEJCpDvsmYlzQ0FTwSwsL5$bltoBbtMNr2T2l/WYkD75tjxoddHdmIzYmSBfrzIRYY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0012",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:30.822Z",
+    "full_name": "رامي ممدوح صبحي",
+    "address": "",
+    "phone": "1534567890",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$FhnDkE07RxJViM08KfURRH$qOCaSjaDoKho66oXVGB3vh6qctQXQu7PPxbYC7Bnrz0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0013",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:32.547Z",
+    "full_name": "هاني عاطف مراد",
+    "address": "",
+    "phone": "1045678901",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$tNhhvwvFbgXhZuvQxajycm$+qBqDF4CmpBa1krmA70ne8tn0+YXhvw1x0Wy8K6xe0M=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0014",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:34.352Z",
+    "full_name": "تامر وجدي أنور",
+    "address": "",
+    "phone": "1145678901",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$3BIVcGDwR6nQHKka2UKrh3$JF+tKNBZa3iDC/STXqsXcJIc1y0sN89NWonFuS4aooI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0015",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:37.978Z",
+    "full_name": "إيهاب سمير جلال",
+    "address": "",
+    "phone": "1245678901",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$a1NO2w3CZig5jDfVf6DBNJ$Ama4BylMrR7QJEmSIS7RNtRQJDtumnG6E2wVNYyt3tE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0016",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:40.819Z",
+    "full_name": "عماد زكريا شوقي",
+    "address": "",
+    "phone": "1545678901",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$9lJhpoKgqfq0pljupMq1lA$XqW579N+0X3tgx29PhgoRdryA1sB2C66zihf5SIEZTs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0017",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:44.196Z",
+    "full_name": "حسام الدين محمد",
+    "address": "",
+    "phone": "1056789012",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$YXo0VvQyyeKHWr1sl1S4mZ$Ml7JLOjk5oF6ozKphV8y2rY7ggq+Ols4BikkgVZr5CE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0018",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:46.381Z",
+    "full_name": "وائل لطفي عبد المسيح",
+    "address": "",
+    "phone": "1156789012",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 19,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$D8yz6LCdD1h2Kxto94OP7Y$jpFlMpIe9BbdPse329h0Jmg4vubZyBMxIIQywoMVJHk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0019",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:48.379Z",
+    "full_name": "سامي نجيب حنا",
+    "address": "",
+    "phone": "1256789012",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 20,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$4iMLmsTSrW8X0Q4B57PcLc$RKL9r1+Sl3efmeAZ2a01bQBT+bbaMbfZxiywBSP2Gow=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D27-0020",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-06T12:57:50.089Z",
+    "full_name": "فادي ماهر بشاي",
+    "address": "",
+    "phone": "1556789012",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 21,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$N9tMZ2361m69MdKePmmIHi$SIE4hdCyghhZzn+n+P5xppyxKb7RqXaayNIpqkv1R5o=",
+    "last_login": "2026-05-19T09:06:40.900Z",
+    "is_superuser": true,
+    "username": "farid",
+    "first_name": "فريد",
+    "last_name": "فايز",
+    "email": "faridfaiz71@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-06T13:02:06Z",
+    "full_name": "فريد فايز فريد",
+    "address": "51 Abd Elltif St, 1",
+    "phone": "01276644631",
+    "whatsapp": "",
+    "father": "أ دانيال",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": "",
+    "role": "admin",
+    "image": "images/avatars/farid/WhatsApp_Image_2026-05-14_at_5_or9JQ5b.15.23_PM.jpeg",
+    "slogan": "شاطر",
+    "family": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 22,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$pisAZDU3pilBozCEf6FXZL$X7oHCuT+lFvWCku11sZlSLq9BSZvGhsbYfX1DHjlgRA=",
+    "last_login": "2026-05-19T10:29:55.130Z",
+    "is_superuser": false,
+    "username": "S30-0001",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T08:50:27.465Z",
+    "full_name": "بيتر فوزي",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "امين الشمامسة",
+    "image": "",
+    "slogan": "شاطر",
+    "family": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 23,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$42Dki8emdjngmpIQ6LwozI$W9ESr7W+uTWfEA32tE/yYkqTc3KNV2r/y0fNkSqDROU=",
+    "last_login": "2026-05-19T09:30:44.266Z",
+    "is_superuser": false,
+    "username": "S30-0002",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T08:50:29.126Z",
+    "full_name": "مينا عماد عياد",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "امين مرحلة",
+    "image": "",
+    "slogan": "شاطر",
+    "family": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 24,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$8ukoQObOkSTbq9E0PmzIFs$UwNi4gSIZXC27Si6aHKGGULer6l/5ky/RtsJFmFMlUQ=",
+    "last_login": "2026-05-17T10:31:34.870Z",
+    "is_superuser": false,
+    "username": "S30-0003",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T08:50:30.880Z",
+    "full_name": "كيرلس وجيه بباوي",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "امين اسرة",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 25,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$1vO3Yi6ixiCqIzwvHXQYRp$zimA6z+tusgZmlyIgSOmCCDscz6lIrECiWbqUzKY6Ds=",
+    "last_login": "2026-05-13T07:36:25.203Z",
+    "is_superuser": false,
+    "username": "S30-0004",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T08:50:32.298Z",
+    "full_name": "توماس بولا",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": "2007-10-29",
+    "birth_date": "2001-05-17",
+    "parent_phone": null,
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 26,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Wp3px6AObkQB6UOsw7sh4A$TPY3/tdFxphyhTGU3diDWquywmknqEqv6yJWsTvuUu0=",
+    "last_login": "2026-05-17T09:35:13.274Z",
+    "is_superuser": false,
+    "username": "S30-0008",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T09:16:20.715Z",
+    "full_name": "اباكير سامي",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "امين مرحلة",
+    "image": "",
+    "slogan": "شاطر",
+    "family": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 27,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$guo7aoNKze8tV8IwOFGQHc$ijW5TcC+BFbyryCbSFeL3YRUoO1weJZCfVAA2ybSSNM=",
+    "last_login": "2026-05-17T08:23:08.678Z",
+    "is_superuser": false,
+    "username": "S30-0011",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T09:16:22.366Z",
+    "full_name": "بيشوي ملاك",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "امين اسرة",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 8,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 28,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$jUdnCRYFrHNfxvpEMRsw4Z$ueT+Nrg1S+1e3K6qS3EI8rL4I5hlwP8QNMEcV7Q80Mg=",
+    "last_login": "2026-05-19T08:37:32.768Z",
+    "is_superuser": false,
+    "username": "S30-0012",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T09:16:23.959Z",
+    "full_name": "اندرو روماني",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 8,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 29,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$qf1DJ93JhjyZhpo7r26AOO$uk9WemGJVdEJtoA3678lRHrlrq1UTc7K4AnEKNkpchU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "S30-0006",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T09:32:34.982Z",
+    "full_name": "مينا صبحي",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "امين اسرة",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 6,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 30,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$wyQqCIFSnNS0qjTPaErs10$WjvgAx7sN0JUrKkNfAcpVyUxShspUfUEqFwlf8A/S4I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "S30-0007",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T09:32:36.708Z",
+    "full_name": "مارك سامي",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 6,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 31,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ufluSelB4U2uiISOBDg9M7$3KX5iXeKsyrhho8xh1IM8y5rSYhOy9T6LWxrc7NTWmk=",
+    "last_login": "2026-05-17T08:43:54.343Z",
+    "is_superuser": false,
+    "username": "S30-0009",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T09:32:38.384Z",
+    "full_name": "مينا وجيه بباوي",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "امين اسرة",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 7,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 32,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WmJTrvkExmd37NPStokIxL$Vobz5tIK01qmK3QgJ9irsu5ucFqJQJtrj117Lr4bf0Q=",
+    "last_login": "2026-05-10T14:49:56.127Z",
+    "is_superuser": false,
+    "username": "S30-0010",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T09:32:40.032Z",
+    "full_name": "مكاري مكين",
+    "address": "",
+    "phone": "1012345678",
+    "whatsapp": null,
+    "father": "",
+    "age": null,
+    "joined_date": null,
+    "birth_date": null,
+    "parent_phone": null,
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "شاطر",
+    "family": 7,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 34,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6XE7aKFNqHSJl9xBqfAaM1$eTGDvnqKwjEY5bchBcahXVosv3XpCz0vy0JveIZ9H7M=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D70-0002",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T08:25:10.100Z",
+    "full_name": "خادم 1",
+    "address": "شسيشسي",
+    "phone": "1313",
+    "whatsapp": "",
+    "father": "دانيال",
+    "age": null,
+    "joined_date": "2026-05-27",
+    "birth_date": "2026-05-12",
+    "parent_phone": "",
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "رايق",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 35,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$LV9v2hWVE4WSFbIOgDaJky$qv8Qvh/OmCr0rTEJUvmYCWdLGlWxwhnN5ykgrvKgvqI=",
+    "last_login": "2026-05-17T08:36:14.429Z",
+    "is_superuser": false,
+    "username": "D70-0003",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T08:27:45.562Z",
+    "full_name": "خادم 2",
+    "address": "sdadasd",
+    "phone": "341234",
+    "whatsapp": "",
+    "father": "دانيال",
+    "age": null,
+    "joined_date": "2026-05-12",
+    "birth_date": "2026-05-20",
+    "parent_phone": "",
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "رايق اوي",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 36,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$M8cSELMenpLGAM20IvkCCZ$+uv9z8GbUAau/8lSWdsjCy10344Exe8Vu3YCnEPddY8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D70-0004",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T08:31:27.469Z",
+    "full_name": "خادم 3",
+    "address": "شسيشس",
+    "phone": "0127",
+    "whatsapp": "",
+    "father": "اباهور",
+    "age": null,
+    "joined_date": "2026-05-13",
+    "birth_date": "2026-05-19",
+    "parent_phone": "",
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "جميل",
+    "family": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 37,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$n5sscRrP0VoEUf1Zkfz9do$fkBKsteQYkCZTpdriRB0wvhvuVxgYFw9cLWM26PPOhk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D250",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T10:57:34.025Z",
+    "full_name": "مخدوم تسيت",
+    "address": "شسيسي",
+    "phone": "123123",
+    "whatsapp": "",
+    "father": "دانيال",
+    "age": null,
+    "joined_date": "2026-05-13",
+    "birth_date": "2026-05-20",
+    "parent_phone": "",
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "",
+    "family": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 38,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$EXTU7AiXyxLwH47tWjJEzU$n6STVEgqY/bEEeyqQ2sDo7tchRJGJ0iudkl8BIH002Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D2520",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T11:02:15.677Z",
+    "full_name": "تسيت مخدوم",
+    "address": "dasda",
+    "phone": "314",
+    "whatsapp": "",
+    "father": "asd",
+    "age": null,
+    "joined_date": "2026-05-15",
+    "birth_date": "2026-05-20",
+    "parent_phone": "",
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "",
+    "family": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 39,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$mG85Dr9darI6j3O6zXcc2r$mmyro3PoYmaeK9g2WWrSNV4kndp/ruVe1+wJPcoyf8Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D2501",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T11:10:26.801Z",
+    "full_name": "تسيت خادم",
+    "address": "شسيشسيشس",
+    "phone": "13",
+    "whatsapp": "",
+    "father": "دانيال",
+    "age": null,
+    "joined_date": "2026-05-21",
+    "birth_date": "2026-05-11",
+    "parent_phone": "",
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "",
+    "family": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 40,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$lAuYEdzLB6bZM1Rx3YnI8Z$OZtAiVkFN8cS83e/s9gu3HzXlh9aJGOU2XmM5hoGf/Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "D2502",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T11:10:51.716Z",
+    "full_name": "تسيت مخدوم 3",
+    "address": "شسيشسيشس",
+    "phone": "13",
+    "whatsapp": "",
+    "father": "دانيال",
+    "age": null,
+    "joined_date": "2026-05-21",
+    "birth_date": "2026-05-11",
+    "parent_phone": "",
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "",
+    "family": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 41,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$6DM3oFql4MNzK1u5JSO2Kj$MAa5nnJ9wOYohhf4mBpKBjGM38hPCVQ2DreL1t5JDfQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "S3501",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-17T11:19:01.524Z",
+    "full_name": "تسيت خادم من امين مرحلة",
+    "address": "asdasd",
+    "phone": "342",
+    "whatsapp": "",
+    "father": "دانيال",
+    "age": null,
+    "joined_date": "2026-05-19",
+    "birth_date": "2026-05-12",
+    "parent_phone": "",
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "",
+    "family": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 42,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$FEkMgSsdFWKAaXOjipjraQ$wCoUgeXAUrC6Lpsg+FSssLYpgxsHtjfeOzldWH/paWQ=",
+    "last_login": "2026-05-19T09:11:55.834Z",
+    "is_superuser": false,
+    "username": "D20-0001",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-19T09:06:08.363Z",
+    "full_name": "ديفيد نادر نبيه",
+    "address": "ضصثيضصسي",
+    "phone": "nan",
+    "whatsapp": "",
+    "father": "دانيال",
+    "age": null,
+    "joined_date": "2026-05-20",
+    "birth_date": "2026-05-19",
+    "parent_phone": "",
+    "role": "مخدوم",
+    "image": "",
+    "slogan": "ياعم جامد ياعم",
+    "family": 7,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 43,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$qcX9oXKWWI9Mlord1R4ij1$LLV6N40cPqrRpbIc4ROsqPNCfOyZ5Ph/FHrQtGH98jY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "S50-0022",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-19T10:31:36.690Z",
+    "full_name": "حادم خادم خادم خادم",
+    "address": "شيشسيشس",
+    "phone": "01284466652",
+    "whatsapp": "01284",
+    "father": "افرام",
+    "age": null,
+    "joined_date": "2026-05-20",
+    "birth_date": "2026-05-21",
+    "parent_phone": "012365478",
+    "role": "خادم عادي",
+    "image": "",
+    "slogan": "جديد",
+    "family": 13,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.stageleader",
+  "pk": 1,
+  "fields": {
+    "stage": 2,
+    "customuser": 23
+  }
+},
+{
+  "model": "users.stageleader",
+  "pk": 2,
+  "fields": {
+    "stage": 3,
+    "customuser": 21
+  }
+},
+{
+  "model": "users.stageleader",
+  "pk": 3,
+  "fields": {
+    "stage": 6,
+    "customuser": 23
+  }
+},
+{
+  "model": "users.stageleader",
+  "pk": 4,
+  "fields": {
+    "stage": 3,
+    "customuser": 26
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 1,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.53.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-06T13:02:42.869Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 2,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.53.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-06T13:03:44.145Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 3,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.53.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-06T13:04:07.945Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 4,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-06T13:06:06.005Z",
+    "logout_time": null,
+    "session_hash": "d8b9f0ff51587ac98559019cddfbfe24eccfade5f44fdc890d35e2f42f4939fb"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 5,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "path_info": "/admin/login/",
+    "attempt_time": "2026-05-06T13:09:04.328Z",
+    "logout_time": null,
+    "session_hash": "1888562619f35035b7211f65cf9bb8e8a75f0f8e8af04d6979bba13b944ea080"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 6,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-06T13:10:26.002Z",
+    "logout_time": null,
+    "session_hash": "29b42edabfe37508cc26d8ba76aa614b9591c6a15d3b4cb0391873d080a30695"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 7,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T08:53:14.158Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 8,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0002",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T09:10:16.249Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 9,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0003",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T09:11:07.608Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 10,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T09:33:09.572Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 11,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T09:35:25.474Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 12,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T10:30:52.327Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 13,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T10:56:13.476Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 14,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:05:41.834Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 15,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0009",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:08:39.006Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 16,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:12:45.559Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 17,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:17:27.680Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 18,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0002",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:24:36.795Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 19,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0004",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:25:36.046Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 20,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0003",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:56:52.225Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 21,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0002",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:57:55.316Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 22,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T11:59:55.385Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 23,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0012",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T12:01:22.745Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 24,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T12:01:59.720Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 25,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T12:02:57.797Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 26,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T12:04:03.289Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 27,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T12:06:38.233Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 28,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T12:10:20.105Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 29,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T13:07:23.173Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 30,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T13:41:47.123Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 31,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0012",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T13:42:23.033Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 32,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T13:46:12.487Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 33,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T13:59:34.322Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 34,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:21:35.600Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 35,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:22:38.584Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 36,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:30:57.442Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 37,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:43:25.112Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 38,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0010",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:44:55.863Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 39,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:45:06.072Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 40,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:47:55.350Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 41,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:48:24.257Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 42,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0010",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-10T14:49:55.852Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 43,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T09:12:27.040Z",
+    "logout_time": null,
+    "session_hash": "5fb238d078c1a7ce234ab7be7d17e744701c40dc651e2adcc1420de3e3dfad7d"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 44,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T09:18:09.794Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 45,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T09:20:53.696Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 46,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T09:21:26.646Z",
+    "logout_time": null,
+    "session_hash": "424d7f65e13bfe347d3564cca5575a8fe17c1ab370a18af4f9a0c5859f16ce9d"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 47,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0009",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T09:49:47.238Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 48,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0009",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T09:50:36.964Z",
+    "logout_time": null,
+    "session_hash": "c2d97e59c28bdf4fd09b69b6d8a428a110fc0450ebb03990021f57929c300a4f"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 49,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0012",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T09:59:12.530Z",
+    "logout_time": null,
+    "session_hash": "548260d838abc1acf1e2642652c1611a3c11cbce2124ee512cc923e529690df1"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 50,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T10:03:34.184Z",
+    "logout_time": null,
+    "session_hash": "d5ff982cf6344fee29f0f55f776f06ae73ec4eec2596717a19c0a98cf19edb53"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 51,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T10:15:14.944Z",
+    "logout_time": null,
+    "session_hash": "05844cd48bf46935e89e685e2dd46e3644b72e67119d0f39d8d78f7133da7f6b"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 52,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T10:15:39.122Z",
+    "logout_time": null,
+    "session_hash": "6083f6abee7eda41e4e9cfa290d6ef26aa6f9e5d2f681977554e79b05daf19db"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 53,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T11:15:08.540Z",
+    "logout_time": null,
+    "session_hash": "ca5b9f852b0bdaa5ec2df2ee719cac84878ac47389bd685040569b7507b5607d"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 54,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T11:24:14.575Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 55,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T11:32:59.140Z",
+    "logout_time": null,
+    "session_hash": "7318a548bd24901e1cf61d050699edc89a473b62fff3b14643653614929501b7"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 56,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0003",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T11:34:30.942Z",
+    "logout_time": null,
+    "session_hash": "142ed07d91ed933403658ae4f8364a646aebd9451cb91de7f6d769cbff056437"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 57,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0004",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T11:35:06.658Z",
+    "logout_time": null,
+    "session_hash": "03012303de53083cdaa78b94c68d6032295a86781adbc95473e06fd382f57353"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 58,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0004",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T12:58:50.090Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 59,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0012",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T14:27:37.907Z",
+    "logout_time": null,
+    "session_hash": "e7b600baf53f95a76b6c439ba6158a9c64d33fe5fc26013ec1a35c0db4f0dd2a"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 60,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0011",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T14:29:47.316Z",
+    "logout_time": null,
+    "session_hash": "5615a85dff0686761f577260995c13cd3b12b15510cc1615c3c137db45a853e6"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 61,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T14:30:44.634Z",
+    "logout_time": null,
+    "session_hash": "9ac739ec52681cac66768b05ebf4acd3073ffde5729ed80c562ccb07854bb1ae"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 62,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0002",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T14:32:13.960Z",
+    "logout_time": null,
+    "session_hash": "954f48f95983db19cab7ae2abcb90d6866395506c71c0c0585fb7f55ae2d45ba"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 63,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-11T14:33:10.319Z",
+    "logout_time": null,
+    "session_hash": "a7316d46f5fd4095305236fda3f4a6e5bd11c880d563d8062b952dc594394a5f"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 64,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "path_info": "/admin/login/",
+    "attempt_time": "2026-05-13T07:22:38.835Z",
+    "logout_time": null,
+    "session_hash": "62d936689418169c3ae112087a1061f9cf0c69c64a315e73b22f0725b951eb3d"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 65,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0004",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T07:36:25.047Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 66,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T07:36:33.472Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 67,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T10:31:54.006Z",
+    "logout_time": null,
+    "session_hash": "cb154ad8dbe3bb71e9c3d80b725ebd5761eb29f6eea42ff0c177981204ea0162"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 68,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T10:32:35.057Z",
+    "logout_time": null,
+    "session_hash": "62d4fa417e48a9501097f923dc1370f7e8b837253c04861f14f3c83b37bad1c1"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 69,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T10:32:57.457Z",
+    "logout_time": null,
+    "session_hash": "3584df3be67d9645591dce93341a319c89499bbb9edc96b16c7a148ad589bced"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 70,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T10:33:29.466Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 71,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T10:35:47.144Z",
+    "logout_time": null,
+    "session_hash": "ab85d040a4c0a096c7db0634f1ed800a76201a29263e18b5b4edac52c5411f46"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 72,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "D27-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T13:51:55.936Z",
+    "logout_time": null,
+    "session_hash": "4b1a0ec4f307211e4faf0603c50db43330a7b45e9d09935b5d13f0025c2d3e40"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 73,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T13:54:13.104Z",
+    "logout_time": null,
+    "session_hash": "2e563905fac8c615d3b978d9813b7ccf60618b845650319c69e2f2f1240c04e9"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 74,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-13T14:33:56.590Z",
+    "logout_time": null,
+    "session_hash": "0f7bcb800f41945b1c14328cac311779e25c47cf58654aff80939e3ae9004484"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 75,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-14T11:33:11.938Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 76,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-14T14:15:56.811Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 77,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-14T14:36:37.404Z",
+    "logout_time": null,
+    "session_hash": "050945e5718880811fe5047f6348571631bfb240ac7f9a163e2052d3634610b4"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 78,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T07:16:25.120Z",
+    "logout_time": null,
+    "session_hash": "5729576fdab7a73584848ab2d7e4e1dded2d93693cdb87eced660ce2cf6fde2b"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 79,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0011",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T07:21:02.972Z",
+    "logout_time": null,
+    "session_hash": "0d990a25adf69156db9c00f46a7ac70f89570542feeda8d8d27f418a17f74104"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 80,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T07:52:43.544Z",
+    "logout_time": null,
+    "session_hash": "ee5be6a5de09803c3476be2c97936a3f6aba4e8b0f3723676e9eea494b767361"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 81,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0012",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T07:53:35.985Z",
+    "logout_time": null,
+    "session_hash": "e015a2d8be4872f001f7ef180f692478cf6d257dafa58c0f0d8a16004b7665d3"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 82,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0011",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:23:08.512Z",
+    "logout_time": null,
+    "session_hash": "1c6f81f9d0c23bc44d7b51cfc4935cdea6941c56411cbb541bbd5e47a73034a8"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 83,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:23:28.220Z",
+    "logout_time": null,
+    "session_hash": "250d7a8204e507eccf4797694bce5498611742e3df18e489fd988995c48339c5"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 84,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "D70-0003",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:32:13.078Z",
+    "logout_time": null,
+    "session_hash": "036df0e68e18f2e1ffc347f6fb862aacf9ae5b3804fec21c31b7932b4cb11e52"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 85,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:33:45.095Z",
+    "logout_time": null,
+    "session_hash": "a7cd853e02d0058943617bb7e37a2a396a9352fb74bd709249cd4bc7a5d50040"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 86,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "D70-0003",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:36:14.299Z",
+    "logout_time": null,
+    "session_hash": "b6257353bc9133e68c9bdf4a4fbcb23c840bf213b7655b4e432fbc45b4a85852"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 87,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:42:29.296Z",
+    "logout_time": null,
+    "session_hash": "1eb19e35f347ffb714358dfd9d835011b8b93719371039f7fb8ac5402198073a"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 88,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:43:26.056Z",
+    "logout_time": null,
+    "session_hash": "a530d80ff2a2fcf675af4056fb64a5d48220a5027e5f2e1b5529ddaccdfde0df"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 89,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0009",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:43:54.198Z",
+    "logout_time": null,
+    "session_hash": "17bb7e5e4ce0d53627f4fde83d189059ef36f3f82ea22c0132a8bfef7495eb02"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 90,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T08:56:55.265Z",
+    "logout_time": null,
+    "session_hash": "96a535fbd71bd2c8f3a72cdad9292321ef3242acf7fde20bf6214a9b452c4162"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 91,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T09:06:34.024Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 92,
+  "fields": {
+    "user_agent": "PostmanRuntime/7.54.0",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0008",
+    "http_accept": "*/*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T09:35:13.155Z",
+    "logout_time": null,
+    "session_hash": "e68cd4f444c6b56d91f7db434979cb16bdbeaf3132329e2b909ab8eef7cb6cef"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 93,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T10:27:37.104Z",
+    "logout_time": null,
+    "session_hash": "51f9e6963f93e73d195d4cb6a0ebb5a92a652b09840190f8d79b3d28f4ef4e6c"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 94,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T10:29:53.756Z",
+    "logout_time": null,
+    "session_hash": "33807f32ca793c67d8287e043dff8d553bcf9f2d522756869bb5765da99d3e30"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 95,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0002",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T10:30:36.699Z",
+    "logout_time": null,
+    "session_hash": "f4ccc2eab90fce2dbe999dcea7d5007f4c8adc40d4851a1925686e303c833992"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 96,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0003",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T10:31:34.724Z",
+    "logout_time": null,
+    "session_hash": "b64a8e5c3c8ce03f71f0e9b92e10325704bec9013a360d46d754cb541443170f"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 97,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T11:09:21.857Z",
+    "logout_time": null,
+    "session_hash": "357e0af847dc1b24afec5e1d78e2f90959fd93c1a4d08801d7fd4bf7d19fc867"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 98,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0002",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T11:17:59.800Z",
+    "logout_time": null,
+    "session_hash": "1abf122dcb5b38e0ef8b0f41aa43d44d0393ba61bce5422d95269b1f8939c2fe"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 99,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T11:49:05.480Z",
+    "logout_time": null,
+    "session_hash": "07d19cc8f2ed32192aa35ed6ae8e8d8b00f244fe66b456f31b578eabe0541f70"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 100,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T12:21:10.117Z",
+    "logout_time": null,
+    "session_hash": "bdb8882b24081ca9905cd3763183413108d940052f9fc27e747b9f8ac44bc0ab"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 101,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-17T13:08:17.624Z",
+    "logout_time": null,
+    "session_hash": "e32d27586ccb197bb72548360a16f71e90256a2e55a9ed7ff81b5863bfbee23d"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 102,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0012",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T08:37:32.632Z",
+    "logout_time": null,
+    "session_hash": "b06dabac20150a9d47355518d389a6f749540c743bcf891228c62066f874d4c8"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 103,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T08:51:47.027Z",
+    "logout_time": null,
+    "session_hash": "9e7c802347812fecd8dfa9156b386522510335108fe1808c94cf192a1e687f36"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 104,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T08:54:18.289Z",
+    "logout_time": null,
+    "session_hash": "81a63e674b6a53f997e9a34b1a88009a07b2551a709852d17bac62c51d1e1c81"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 105,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T08:56:30.873Z",
+    "logout_time": null,
+    "session_hash": "12e413d06f3230bf4adf43622546a78b803b43589c2bdbc32f16f367bd52ba3a"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 106,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T08:57:38.191Z",
+    "logout_time": null,
+    "session_hash": "500eb897adf756551944fd5d47a0cbb85e07b6a1be2f8cab252b8fdb0405782d"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 107,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T09:01:39.477Z",
+    "logout_time": null,
+    "session_hash": "faf2ac7dd6ed8ec53b07486fac64646af0557a97d571b9da86eddb58f8ab2a14"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 108,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T09:04:40.298Z",
+    "logout_time": null,
+    "session_hash": "fa6f8aca8644fbdb94a631c9bacbb8d42a46b8c9f5dd4b3d0cd540a4d2e787bf"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 109,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "farid",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T09:06:40.799Z",
+    "logout_time": null,
+    "session_hash": "44f4d525cd8d3719f089f519aa9e6d95a257065e5bd0bb82bb76f4bb451cc1fd"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 110,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "D20-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T09:11:55.706Z",
+    "logout_time": null,
+    "session_hash": "78ca5a9c7c357afbe227d4970f4416b506655072fbbb32ccbc8547fe5c5bd191"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 111,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0002",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T09:30:44.137Z",
+    "logout_time": null,
+    "session_hash": "ca40fea48c9efcf0720fc6e831092de6e5f95b0826484b94bbfd99351e9c9f02"
+  }
+},
+{
+  "model": "axes.accesslog",
+  "pk": 112,
+  "fields": {
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+    "ip_address": "127.0.0.1",
+    "username": "S30-0001",
+    "http_accept": "application/json, text/plain, */*",
+    "path_info": "/api/token/",
+    "attempt_time": "2026-05-19T10:29:55.020Z",
+    "logout_time": null,
+    "session_hash": "53d8d8408d6fa9f30326d80ef0b296645e7e038885059d0236803953205bdd85"
+  }
+},
+{
+  "model": "stages.stage",
+  "pk": 1,
+  "fields": {
+    "name": "المرحلة الاولي",
+    "leaders": []
+  }
+},
+{
+  "model": "stages.stage",
+  "pk": 2,
+  "fields": {
+    "name": "المرحلة الثانية",
+    "leaders": [
+      23
+    ]
+  }
+},
+{
+  "model": "stages.stage",
+  "pk": 3,
+  "fields": {
+    "name": "المرحلة الثالثه كبار",
+    "leaders": [
+      21,
+      26
+    ]
+  }
+},
+{
+  "model": "stages.stage",
+  "pk": 4,
+  "fields": {
+    "name": "مرحلة خاصة",
+    "leaders": []
+  }
+},
+{
+  "model": "stages.stage",
+  "pk": 5,
+  "fields": {
+    "name": "الخورس",
+    "leaders": []
+  }
+},
+{
+  "model": "stages.stage",
+  "pk": 6,
+  "fields": {
+    "name": "المرحلة الثانية ",
+    "leaders": [
+      23
+    ]
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 1,
+  "fields": {
+    "name": "اسرة القديس اسطفانوس",
+    "year": "سنه اولي صغيرين",
+    "stage": 1,
+    "drive_folder_id": "1AUU0tXbA7WC_2URShYHOFwIw02sgf2Bh"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 2,
+  "fields": {
+    "name": "اسرة مارمينا",
+    "year": "سنة ثانيه صغيرين",
+    "stage": 1,
+    "drive_folder_id": "1LPma5mbhCtutSU1bWfM1mAAR_e-pDilf"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 3,
+  "fields": {
+    "name": "اسرة الانبا بيشوي",
+    "year": "سنه ثالثه صغيرين",
+    "stage": 1,
+    "drive_folder_id": "1ER2HB6u9nV_grMVF6nZXFP9J9J1Ao8-T"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 4,
+  "fields": {
+    "name": "اسرة الانبا انطونيوس",
+    "year": "سنه رابعه صغيرين",
+    "stage": 2,
+    "drive_folder_id": "1Akj7GdV8RCGV3cvpJPWah4HoVyR6rGTu"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 5,
+  "fields": {
+    "name": "اسرة البابا كيرلس عمود الدين",
+    "year": "سنه خامسه صغيرين",
+    "stage": 2,
+    "drive_folder_id": "1CQ7LbkhvYIskBXdjaqQU0JK09vAk5iY2"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 6,
+  "fields": {
+    "name": "اسرة البابا اثناسيوس",
+    "year": "سنه سادسه",
+    "stage": 2,
+    "drive_folder_id": "1TTCvadc928bdveQ6iOuYrKk9E7xN1pv_"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 7,
+  "fields": {
+    "name": "اسرة القديس اسطفانوس ع ث",
+    "year": "سنه اولي وتانية كبار",
+    "stage": 3,
+    "drive_folder_id": "1AUU0tXbA7WC_2URShYHOFwIw02sgf2Bh"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 8,
+  "fields": {
+    "name": "اسرة الانبا بيشوي ع ث",
+    "year": "سنه ثالثه كبار",
+    "stage": 3,
+    "drive_folder_id": "1ER2HB6u9nV_grMVF6nZXFP9J9J1Ao8-T"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 9,
+  "fields": {
+    "name": "اسرة الانبا انطونيوس ع ث",
+    "year": "سنه رابعه كبار",
+    "stage": 3,
+    "drive_folder_id": "1Akj7GdV8RCGV3cvpJPWah4HoVyR6rGTu"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 10,
+  "fields": {
+    "name": "اسرة البابا كيرلس عمود الدين  ع ث",
+    "year": "سنه خامسه كبار",
+    "stage": 3,
+    "drive_folder_id": "1CQ7LbkhvYIskBXdjaqQU0JK09vAk5iY2"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 11,
+  "fields": {
+    "name": "اسرة داود النبي",
+    "year": "الاسره التمهيديه",
+    "stage": 4,
+    "drive_folder_id": null
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 12,
+  "fields": {
+    "name": "اسرة حبيب جرجس",
+    "year": "حبيب جرجس",
+    "stage": 4,
+    "drive_folder_id": "1LSKLTz6mlkM1VroN5wI-DB3U_9w4UXBi"
+  }
+},
+{
+  "model": "stages.family",
+  "pk": 13,
+  "fields": {
+    "name": "خورس الملاك سوريال",
+    "year": "الخورس",
+    "stage": 5,
+    "drive_folder_id": "10ageA1MXgcmHG0b2tXpkWomNLytBXQTF"
+  }
+},
+{
+  "model": "results.subject",
+  "pk": 1,
+  "fields": {
+    "name": "طقس",
+    "final_grade": 100,
+    "success_grade": 60
+  }
+},
+{
+  "model": "results.subject",
+  "pk": 2,
+  "fields": {
+    "name": "الحان",
+    "final_grade": 80,
+    "success_grade": 40
+  }
+},
+{
+  "model": "results.subject",
+  "pk": 3,
+  "fields": {
+    "name": "محفوظات",
+    "final_grade": 20,
+    "success_grade": 15
+  }
+},
+{
+  "model": "results.exam",
+  "pk": 1,
+  "fields": {
+    "name": "الترم الاول",
+    "year": "سنة 2026"
+  }
+},
+{
+  "model": "results.exam",
+  "pk": 2,
+  "fields": {
+    "name": "الترم الثاني",
+    "year": "2026"
+  }
+},
+{
+  "model": "results.exam",
+  "pk": 3,
+  "fields": {
+    "name": "الترم الثالث",
+    "year": "2026"
+  }
+},
+{
+  "model": "results.result",
+  "pk": 1,
+  "fields": {
+    "student": 21,
+    "subject": 1,
+    "exam": 1,
+    "points": 55.0
+  }
+},
+{
+  "model": "results.result",
+  "pk": 2,
+  "fields": {
+    "student": 21,
+    "subject": 2,
+    "exam": 1,
+    "points": 50.0
+  }
+},
+{
+  "model": "results.result",
+  "pk": 3,
+  "fields": {
+    "student": 21,
+    "subject": 2,
+    "exam": 2,
+    "points": 70.0
+  }
+},
+{
+  "model": "results.result",
+  "pk": 4,
+  "fields": {
+    "student": 21,
+    "subject": 3,
+    "exam": 1,
+    "points": 17.0
+  }
+},
+{
+  "model": "results.result",
+  "pk": 5,
+  "fields": {
+    "student": 1,
+    "subject": 3,
+    "exam": 3,
+    "points": 12.0
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 3,
+  "fields": {
+    "student": 21,
+    "term": 2,
+    "date": "2026-05-01",
+    "is_present_mass": true,
+    "is_present_family": true,
+    "created_at": "2026-05-14T13:38:52.633Z"
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 4,
+  "fields": {
+    "student": 21,
+    "term": 2,
+    "date": "2026-05-08",
+    "is_present_mass": true,
+    "is_present_family": false,
+    "created_at": "2026-05-14T13:39:13.087Z"
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 5,
+  "fields": {
+    "student": 21,
+    "term": 1,
+    "date": "2026-04-03",
+    "is_present_mass": false,
+    "is_present_family": true,
+    "created_at": "2026-05-14T13:39:31.262Z"
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 6,
+  "fields": {
+    "student": 21,
+    "term": 3,
+    "date": "2026-04-10",
+    "is_present_mass": false,
+    "is_present_family": true,
+    "created_at": "2026-05-14T13:39:43.995Z"
+  }
+},
+{
+  "model": "attendance.attendance",
+  "pk": 7,
+  "fields": {
+    "student": 21,
+    "term": 2,
+    "date": "2026-05-29",
+    "is_present_mass": false,
+    "is_present_family": false,
+    "created_at": "2026-05-14T14:09:36.690Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-05-06T13:10:06.336Z",
+    "user": 21,
+    "content_type": 1,
+    "object_id": "21",
+    "object_repr": "farid",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Full name\", \"Address\", \"Phone\", \"Father\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-05-13T07:23:15.454Z",
+    "user": 21,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Exam object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-05-13T07:23:30.094Z",
+    "user": 21,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Subject object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-05-13T07:23:48.980Z",
+    "user": 21,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Result object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-05-13T07:48:38.754Z",
+    "user": 21,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "Subject object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-05-13T07:49:05.395Z",
+    "user": 21,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "Result object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-05-13T11:46:22.095Z",
+    "user": 21,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "الترم الثاني",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-05-13T11:46:50.153Z",
+    "user": 21,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "فريد فايز فريد",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-05-13T13:30:29.500Z",
+    "user": 21,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "محفوظات",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-05-13T13:30:46.560Z",
+    "user": 21,
+    "content_type": 15,
+    "object_id": "4",
+    "object_repr": "فريد فايز فريد",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-05-13T13:44:31.320Z",
+    "user": 21,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "الترم الثالث",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-05-13T13:53:42.112Z",
+    "user": 21,
+    "content_type": 15,
+    "object_id": "5",
+    "object_repr": "محمد محمد محمد",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-05-14T11:31:50.629Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "فريد فايز فريد - 2026-05-01",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-05-14T11:32:06.905Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "فريد فايز فريد - 2026-05-08",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-05-14T13:38:36.346Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "فريد فايز فريد - 2026-05-08",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-05-14T13:38:36.346Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "فريد فايز فريد - 2026-05-01",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-05-14T13:38:52.904Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "فريد فايز فريد - 2026-05-01",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-05-14T13:39:13.354Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "4",
+    "object_repr": "فريد فايز فريد - 2026-05-08",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-05-14T13:39:31.529Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "5",
+    "object_repr": "فريد فايز فريد - 2026-04-03",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-05-14T13:39:44.270Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "6",
+    "object_repr": "فريد فايز فريد - 2026-04-10",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-05-14T14:09:36.725Z",
+    "user": 21,
+    "content_type": 16,
+    "object_id": "7",
+    "object_repr": "فريد فايز فريد - 2026-05-29",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-05-19T08:33:41.313Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "1",
+    "object_repr": "اسرة القديس اسطفانوس",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-05-19T08:33:56.597Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "اسرة مارمينا",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-05-19T08:34:13.947Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "7",
+    "object_repr": "اسرة القديس اسطفانوس ع ث",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Year\", \"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-05-19T08:34:27.831Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "3",
+    "object_repr": "اسرة الانبا بيشوي",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-05-19T08:34:32.025Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "8",
+    "object_repr": "اسرة الانبا بيشوي ع ث",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-05-19T08:34:52.147Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "4",
+    "object_repr": "اسرة الانبا انطونيوس",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-05-19T08:34:57.339Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "9",
+    "object_repr": "اسرة الانبا انطونيوس ع ث",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-05-19T08:35:12.764Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "اسرة البابا كيرلس عمود الدين",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-05-19T08:35:15.365Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "10",
+    "object_repr": "اسرة البابا كيرلس عمود الدين  ع ث",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-05-19T08:35:50.123Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "6",
+    "object_repr": "اسرة البابا اثناسيوس",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-05-19T08:36:04.403Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "12",
+    "object_repr": "اسرة حبيب جرجس",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-05-19T08:36:21.174Z",
+    "user": 21,
+    "content_type": 6,
+    "object_id": "13",
+    "object_repr": "خورس الملاك سوريال",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Drive folder id\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 1,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 1,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 1,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 1,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add access attempt",
+    "content_type": 2,
+    "codename": "add_accessattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change access attempt",
+    "content_type": 2,
+    "codename": "change_accessattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete access attempt",
+    "content_type": 2,
+    "codename": "delete_accessattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view access attempt",
+    "content_type": 2,
+    "codename": "view_accessattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add access log",
+    "content_type": 3,
+    "codename": "add_accesslog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change access log",
+    "content_type": 3,
+    "codename": "change_accesslog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete access log",
+    "content_type": 3,
+    "codename": "delete_accesslog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view access log",
+    "content_type": 3,
+    "codename": "view_accesslog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add access failure",
+    "content_type": 4,
+    "codename": "add_accessfailurelog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change access failure",
+    "content_type": 4,
+    "codename": "change_accessfailurelog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete access failure",
+    "content_type": 4,
+    "codename": "delete_accessfailurelog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view access failure",
+    "content_type": 4,
+    "codename": "view_accessfailurelog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add access attempt expiration",
+    "content_type": 5,
+    "codename": "add_accessattemptexpiration"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change access attempt expiration",
+    "content_type": 5,
+    "codename": "change_accessattemptexpiration"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete access attempt expiration",
+    "content_type": 5,
+    "codename": "delete_accessattemptexpiration"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view access attempt expiration",
+    "content_type": 5,
+    "codename": "view_accessattemptexpiration"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add family",
+    "content_type": 6,
+    "codename": "add_family"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change family",
+    "content_type": 6,
+    "codename": "change_family"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete family",
+    "content_type": 6,
+    "codename": "delete_family"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view family",
+    "content_type": 6,
+    "codename": "view_family"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add stage",
+    "content_type": 7,
+    "codename": "add_stage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change stage",
+    "content_type": 7,
+    "codename": "change_stage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete stage",
+    "content_type": 7,
+    "codename": "delete_stage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view stage",
+    "content_type": 7,
+    "codename": "view_stage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 8,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 8,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 8,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 8,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 9,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 9,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 9,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 9,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 10,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 10,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 10,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 10,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 11,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 11,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 11,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 11,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 12,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 12,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 12,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 12,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add exam",
+    "content_type": 13,
+    "codename": "add_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change exam",
+    "content_type": 13,
+    "codename": "change_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete exam",
+    "content_type": 13,
+    "codename": "delete_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view exam",
+    "content_type": 13,
+    "codename": "view_exam"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add subject",
+    "content_type": 14,
+    "codename": "add_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change subject",
+    "content_type": 14,
+    "codename": "change_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete subject",
+    "content_type": 14,
+    "codename": "delete_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view subject",
+    "content_type": 14,
+    "codename": "view_subject"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add result",
+    "content_type": 15,
+    "codename": "add_result"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change result",
+    "content_type": 15,
+    "codename": "change_result"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete result",
+    "content_type": 15,
+    "codename": "delete_result"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view result",
+    "content_type": 15,
+    "codename": "view_result"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add attendance",
+    "content_type": 16,
+    "codename": "add_attendance"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change attendance",
+    "content_type": 16,
+    "codename": "change_attendance"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete attendance",
+    "content_type": 16,
+    "codename": "delete_attendance"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view attendance",
+    "content_type": 16,
+    "codename": "view_attendance"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add stage leader",
+    "content_type": 17,
+    "codename": "add_stageleader"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change stage leader",
+    "content_type": 17,
+    "codename": "change_stageleader"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete stage leader",
+    "content_type": 17,
+    "codename": "delete_stageleader"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view stage leader",
+    "content_type": 17,
+    "codename": "view_stageleader"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "users",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "axes",
+    "model": "accessattempt"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "axes",
+    "model": "accesslog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "axes",
+    "model": "accessfailurelog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "axes",
+    "model": "accessattemptexpiration"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "stages",
+    "model": "family"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "stages",
+    "model": "stage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "results",
+    "model": "exam"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "results",
+    "model": "subject"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "results",
+    "model": "result"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "attendance",
+    "model": "attendance"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "users",
+    "model": "stageleader"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1s8zqjo29j3ere91ez99dgfnsrlpud4b",
+  "fields": {
+    "session_data": "e30:1wN6td:Q5UTeNBNyTow9FnZVzOGOCa2GOAWN7yCqXvO28HL4ww",
+    "expire_date": "2026-05-27T10:32:57.667Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1tgui4bkd8kijb9grd960zkm2snfc4ww",
+  "fields": {
+    "session_data": "e30:1wMOsd:M92vQVnomdolmvaXjwLeAonP90htfFNkVzyNsvkna9M",
+    "expire_date": "2026-05-25T11:32:59.561Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2gh0chl059t90i2hcokhtl1bg39g8mk1",
+  "fields": {
+    "session_data": "e30:1wPHhz:uOihPFznJSPrbaSGXNl8gTu4T9ZXlvXoXLtHhuwM0II",
+    "expire_date": "2026-06-02T10:29:55.221Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "356e8fdb4uwlxhk21dkooc2od4hidd69",
+  "fields": {
+    "session_data": "e30:1wObE9:OnrNM7697rqWyKMKC15-VnhzzdQenljWSHCNK_N4mIM",
+    "expire_date": "2026-05-31T13:08:17.860Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4ipxwj4d1qznc37m0fckcbhzevozfd9r",
+  "fields": {
+    "session_data": "e30:1wOX6I:1PTcKzFzL1ZmermYG74he0n0rcq4STCmVXvkaRabqv0",
+    "expire_date": "2026-05-31T08:43:54.432Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4uey3740cfdtr6xk55ntp5cpoywaykwe",
+  "fields": {
+    "session_data": "e30:1wNXAz:U7EpixP-F43lMC3tnWvRbBA3mNb6hIlWIKfWesonz9Q",
+    "expire_date": "2026-05-28T14:36:37.647Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "55cpydpcwvrnwranbmmlg19ugqr2ze44",
+  "fields": {
+    "session_data": "e30:1wMRh0:IcQXdz64d_KppW2X9fpqk447-utQAoFzSBsvbY9_RfY",
+    "expire_date": "2026-05-25T14:33:10.562Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "56ck8pb5i8hqqw2u02rgtidd3ffedw5c",
+  "fields": {
+    "session_data": "e30:1wOZzV:WB-zOAahvXBEztvOXbWXfs8bOuV6kovqYX4p8qrLOow",
+    "expire_date": "2026-05-31T11:49:05.722Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5bneywwflsujj4cgays1hyl7egum171k",
+  "fields": {
+    "session_data": "e30:1wOYlY:TUO-RpJ59pRS13uhlVOc4XcxgxbGsisHejfodjvNVLo",
+    "expire_date": "2026-05-31T10:30:36.941Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5q387j70cvozvr50u4roia4vdbjxasy8",
+  "fields": {
+    "session_data": "e30:1wOWmC:VzxDRr1efoWjL17W72Ufxa7SBeVIb3SdLrtx-6Ep46s",
+    "expire_date": "2026-05-31T08:23:08.764Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6h5sg5t02vwb4ndwqe9tjzuhkwtjpwfa",
+  "fields": {
+    "session_data": "e30:1wPGB1:aVObnu41JdvJwNdxnrfZvHtAmbctMaK5KQylGLxMmEk",
+    "expire_date": "2026-06-02T08:51:47.245Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6l3npzf7n0fthwy09kltp73lq7n92254",
+  "fields": {
+    "session_data": "e30:1wOWys:3eEQmexlwB1uoKxiq3Lva1OuDGf4t0x5W0MI-aqGDMY",
+    "expire_date": "2026-05-31T08:36:14.525Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6udw8bqtl8zg9jvw0jkexoggq6dpn0i3",
+  "fields": {
+    "session_data": "e30:1wMRdj:K6R4tQxdp3j8StxlsJAKBVGN3C1EekP0kt-CGExyrdI",
+    "expire_date": "2026-05-25T14:29:47.534Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7bv1wt201mllv0ww5t5veupm1v24ril0",
+  "fields": {
+    "session_data": "e30:1wPGFb:7qX2WO9Lm_sUzketJu50u8VZ6XcwCv2xNBAPSAmxw-c",
+    "expire_date": "2026-06-02T08:56:31.099Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "825y0edxa7tombtbz9cswkp3s5o1o7al",
+  "fields": {
+    "session_data": "e30:1wMRbe:BeQZao7VGY0mnYXzsMW0jNMEguzvP5iATQG-hxA0hpI",
+    "expire_date": "2026-05-25T14:27:38.140Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9xsi4rcrhbjcudppybu3d6ublsp6r395",
+  "fields": {
+    "session_data": "e30:1wMObM:uRVjhVh1f1_WF5_lXxPUSj-6oG7JBopzD9mQw4kKJXc",
+    "expire_date": "2026-05-25T11:15:08.767Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cx07p8qz1yr5yngl8q1qiyh2a57tkwbo",
+  "fields": {
+    "session_data": "e30:1wMNU6:GcCl5-23ZIIFb_3zi8kcxcm8NHS7OSOIwNc9J0cX7T8",
+    "expire_date": "2026-05-25T10:03:34.426Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dio6tjkruptb24hprbga6spx9lxq9yck",
+  "fields": {
+    "session_data": "e30:1wMNPs:dEykqw85j8HxGBMnkaAOLw-jxGZDRDMbdTnCPkvUQTw",
+    "expire_date": "2026-05-25T09:59:12.750Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dn7e6x53aq3dpg2msnse5d53cy086hcg",
+  "fields": {
+    "session_data": "e30:1wOYif:7sOL190C2joVWfcn9VzhqEHXC31a83PesGAflXHmqos",
+    "expire_date": "2026-05-31T10:27:37.555Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dy5j02mu1tty9pxz57fa3rwex5qew4dv",
+  "fields": {
+    "session_data": "e30:1wPGDS:LxNbPS3D2QvPFd75Zd4COM1gse3wMTjtPXfRjT_lQeY",
+    "expire_date": "2026-06-02T08:54:18.506Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fftety4rhoaf39p4tzl0xfb0b6f8nc12",
+  "fields": {
+    "session_data": "e30:1wOYks:C_thDThABvgOOByDKbQKlYHRBV_lfRs-1zSLDCOKjWU",
+    "expire_date": "2026-05-31T10:29:54.016Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fvb7n88thee0fdiwp1h0np76xxkle9rl",
+  "fields": {
+    "session_data": "e30:1wOVjd:A6bUspC1kjI6m9wR7SkzyjHgZofW-0xfanWm68-tc1c",
+    "expire_date": "2026-05-31T07:16:25.355Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fye59fe1d3q8i5we4kufsl3kxfy9dmxe",
+  "fields": {
+    "session_data": "e30:1wPGKZ:d3mTyd58hddsbQvao781bIH8a38mZ139qJ-wG7E5Dew",
+    "expire_date": "2026-06-02T09:01:39.695Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g6mn2ucdsp8wbp78y3gjh4d87i02a64g",
+  "fields": {
+    "session_data": "e30:1wMNfn:SqSnaTh0nvG9oPelA2RjIpDkFvCTGaXCHNpaxBYMv50",
+    "expire_date": "2026-05-25T10:15:39.380Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g7ftbvwc48zhs0ytcuog3ynq3p1ljwei",
+  "fields": {
+    "session_data": "e30:1wPGNU:xOdi6Vc9JmyMneEd7i9uvgtFvII8U9SodFANVF-_x4s",
+    "expire_date": "2026-06-02T09:04:40.531Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ggy7euzls3rvuizeguzzybg1m18bzxjl",
+  "fields": {
+    "session_data": "e30:1wN6tH:pUXYTrX68vng0h_UB56DpEwNYgp5KfmavfCJNICNh8E",
+    "expire_date": "2026-05-27T10:32:35.282Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gkl96nwhp2n35xktgwnf0gbkknox7xhd",
+  "fields": {
+    "session_data": "e30:1wMNfP:GDNG8iVMgUu7Y3xVmlHJyz8qyxXxO8p_kh0wcn0iGI4",
+    "expire_date": "2026-05-25T10:15:15.204Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gwmxa4llxewza0nyx60blzuynnrhrnbm",
+  "fields": {
+    "session_data": "e30:1wPGmi:QApxwHtup2hbXneLQb_rLsFABFAuhMuQCzru-j6zRfU",
+    "expire_date": "2026-06-02T09:30:44.357Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "h5lgkihaggni3yxzdv9lbnzikej1sszd",
+  "fields": {
+    "session_data": "e30:1wOaUY:MVasT9PKXcvTiCN1O-O87T43b2Y_F19WPfcCa9FXZWY",
+    "expire_date": "2026-05-31T12:21:10.317Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jpvm3okfkuc41p9hiaaeam6htdjvzab6",
+  "fields": {
+    "session_data": "e30:1wMRee:lR7Q0RjTu9-j-hmbb08FbX3Dy6MQDld74hUed8y4UHE",
+    "expire_date": "2026-05-25T14:30:44.843Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ka9kt52n6clzrotwih3cg06g4tnqivie",
+  "fields": {
+    "session_data": "e30:1wOWJc:4Xq1J_C2qlcF1UN2631jTPuUmix-5Nux6h2J2KvG_as",
+    "expire_date": "2026-05-31T07:53:36.236Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kpwwib5xhl0xzrtol3ydboggr61tluas",
+  "fields": {
+    "session_data": "e30:1wN6sc:6iQnxR9NnJLDwXFagnZIQNsJQ1TfQFso-l9p2mM-TQk",
+    "expire_date": "2026-05-27T10:31:54.249Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "l69utu1nmq60fh6cjyigb354r8za0krl",
+  "fields": {
+    "session_data": "e30:1wMRg6:R6v9_uoMSR-GCpuoUpS78tMVJ8zH32g5lZGS-z_74VY",
+    "expire_date": "2026-05-25T14:32:14.178Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ljm7833kid07xv8cnfhhxak367qojnjc",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hA6UmBcuvcMZIZBqRpISrsy3l2bdKHb_977LxVpXUpce57jJOqkYFCH35EpPXLdiNyp3ppOrS7zxHpT9E67vjTJz_Pu_h0U6uVbZyeWMhvrPKIJlsbAyTkOIyRwbI_swSEwig9gmMCAsAS8Ag-YkNX7A_wfN90:1wN3vT:fE_VRoGbSLKVdwYyf6OX8UZ6b-Xx_h-jJ84y2pK9xYU",
+    "expire_date": "2026-05-27T07:22:39.100Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lr28qe4fduxhrrjoa66nxnrsw71pi9lf",
+  "fields": {
+    "session_data": "e30:1wOWwT:QTA0RxjVrrBwSafmK-o6kaotXyx5gHjqnwIpMhZpNQQ",
+    "expire_date": "2026-05-31T08:33:45.305Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lt9g4h2u6i2ef2z7s98471t7zc58sgin",
+  "fields": {
+    "session_data": "e30:1wMNHZ:nZyDM-rAZOEMJuWFqWFup9boXc_fidcwH56--nT5ea0",
+    "expire_date": "2026-05-25T09:50:37.217Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ltu61z5plq8vfljpxrfmqjvbig6oobcq",
+  "fields": {
+    "session_data": "e30:1wMOu7:-nNNml17XIhOQKjW4FbPkFrTHGVTghF1GxrN2ZrZwLE",
+    "expire_date": "2026-05-25T11:34:31.193Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m08d6otiooggupx9onaozmgi86da4pji",
+  "fields": {
+    "session_data": "e30:1wMMpK:yxkOd-9PdiRyp-BEKaOxXHt4Ho5a_KpxAChyVtLFztM",
+    "expire_date": "2026-05-25T09:21:26.855Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m5117fuu98pbdw6glmrpcuywdvhlp960",
+  "fields": {
+    "session_data": "e30:1wNAeq:uL_-6qOgT9AvGjor6FLvXLMc9-DcU36Gi8sERk4vqu8",
+    "expire_date": "2026-05-27T14:33:56.834Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m6jniy1nqmuzpfw2prbgptevrxnnsst6",
+  "fields": {
+    "session_data": "e30:1wPGPQ:z4PhwJENjPi606UOOCfxTIt7AxLhgMRoonn1VUwBsG4",
+    "expire_date": "2026-06-02T09:06:40.971Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mblyljnqtgg8699ojxeoi71r1y1nde4k",
+  "fields": {
+    "session_data": "e30:1wOXIt:oXOjHwxQkO5K_SlqbBGEDbFDT-1hFCy68V3zEULSVFQ",
+    "expire_date": "2026-05-31T08:56:55.474Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mqi04odqsmp3ogkoott9idru8gudkywd",
+  "fields": {
+    "session_data": "e30:1wNA0C:JBuD8ZcYsdgUQdO7hFYnB5swZVN9ucmLmTTsuneCrBk",
+    "expire_date": "2026-05-27T13:51:56.202Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ni5yctf5uo0kcqr3q0z8d26qt4jtthno",
+  "fields": {
+    "session_data": "e30:1wPFxE:os8yY-aVxIjqGF7ZQsH5c5zMpXYI4y_ouJbwOb-0-sw",
+    "expire_date": "2026-06-02T08:37:32.841Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "odtkwi88pp7bqdv9fik30xilk46yk1on",
+  "fields": {
+    "session_data": "e30:1wOVo7:0aFOl7b9R3usn6cl7pUKaN0sl_ELKO3GCpMJY2NKRR4",
+    "expire_date": "2026-05-31T07:21:03.172Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qeoi2pvp9i4lwe8ui731rmy0u17hlqs1",
+  "fields": {
+    "session_data": "e30:1wOZVQ:Wm3b8oBgNHVguKP_mbq0t52aQSmTj6lnWTsRHzdp4SU",
+    "expire_date": "2026-05-31T11:18:00.037Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rbt3g26j98ee9syzridvcc0o7j9n0asq",
+  "fields": {
+    "session_data": "e30:1wKc1C:U83m19GOm1OgNj_iL0v3JjRw5JILuBbVXVCxCkE5iSo",
+    "expire_date": "2026-05-20T13:10:26.221Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rdcr72lwci1qrhiyd7k4g2fnz7zhex0t",
+  "fields": {
+    "session_data": "e30:1wOWIl:u1BYb8oB9e26eTYlBOABbmAkErnRgUUVvtXS-IPzs-E",
+    "expire_date": "2026-05-31T07:52:43.809Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rmuk3irri6qfy7sv1fibpkaglvzf5q5c",
+  "fields": {
+    "session_data": "e30:1wOYmU:xlMZjMcEFcZUvshK3Z-oxFZqrk8z34BGThUBJbmEnLY",
+    "expire_date": "2026-05-31T10:31:34.959Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "sl2mgy74url4bany64unmn7fj16s7m8m",
+  "fields": {
+    "session_data": "e30:1wKbx0:msfstX_UCL22xj0J4RVrSmvqcDL6l_rmBOnHohcdzxw",
+    "expire_date": "2026-05-20T13:06:06.249Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "smw08wu0459s4bah8kfi5ff6a7qx2hew",
+  "fields": {
+    "session_data": "e30:1wPGGg:ETNdmlJlkvbh_kxvKUKB9WtPUvk_ucUL3CzRb1x3CMQ",
+    "expire_date": "2026-06-02T08:57:38.434Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "t0tnvv62dqovkqt0ttax0qfebfirwbx7",
+  "fields": {
+    "session_data": "e30:1wMOug:bKCyv2mAqwBezmdG6Kqg_TffwAjz2eJdMNmSwGF-YCo",
+    "expire_date": "2026-05-25T11:35:06.927Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "t67xvztc79uqkcbrv5vffjbeks11rd6v",
+  "fields": {
+    "session_data": "e30:1wOWmW:5R30awZFu5CmlbYWw66qjBfrfhW2WPz5XJSWM_FxOts",
+    "expire_date": "2026-05-31T08:23:28.447Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ub5towx5uy9zjr5cagvzkua7fyi34c4u",
+  "fields": {
+    "session_data": "e30:1wNA2P:Nl4MLIoWaXuShvWjIs63pmEnH4LuejMbCmUBh1Pz8As",
+    "expire_date": "2026-05-27T13:54:13.374Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wf8i18ybhwsx9uxjyu2boqi5s8wa3qm8",
+  "fields": {
+    "session_data": "e30:1wPGUV:wme85WxeBvs8heoVponujvynSxhZPLCdBR6xAkWo7pI",
+    "expire_date": "2026-06-02T09:11:55.928Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "whj414ysvbzjbdqe4zgz1608182q8gda",
+  "fields": {
+    "session_data": "e30:1wOX4v:6Trz7MA8sJDQAy9A2GWbXC7Ss4kXQbUl8VTysDQ_ae4",
+    "expire_date": "2026-05-31T08:42:29.539Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "x6gc0a3e80azkzzj5s8e60arrwfzp92g",
+  "fields": {
+    "session_data": "e30:1wOZN4:1br4j7rS2t9YRr6bI_BgWHa3XBr_2a8oedGrJZSZoTA",
+    "expire_date": "2026-05-31T11:09:22.174Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y5cfd6ni9p9b9cuppcovkuj6v83x71hu",
+  "fields": {
+    "session_data": "e30:1wMMgd:WT_uuPJbrVwbBoabezwcC2ldykV2hD1FlIuJlg5I-JI",
+    "expire_date": "2026-05-25T09:12:27.290Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "z74t8gcdiq01vgyz7a29iqm90a4pnnax",
+  "fields": {
+    "session_data": "e30:1wOX5q:0r6VZfdwaen6RUHX6dBqLUDr1Hd1TAfK6GZAm-6X6no",
+    "expire_date": "2026-05-31T08:43:26.299Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zbioain1w7ixzeodqvrztn39t16bvauv",
+  "fields": {
+    "session_data": "e30:1wN6wN:LgyjMi4KZs4rdAGKeYETtp-wY7WPY9G92UqBVOAKSqk",
+    "expire_date": "2026-05-27T10:35:47.395Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ziyty8odd7p48faodcvg0ftzm1fyjrdj",
+  "fields": {
+    "session_data": "e30:1wOWuz:h7nJ7asXmThchVsRSS9EOC-rbNCtKNJ3WIk1JYQ1DZo",
+    "expire_date": "2026-05-31T08:32:13.313Z"
+  }
+}
+]
