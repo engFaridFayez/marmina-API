@@ -7,7 +7,8 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-
+config/*.json
+config/occasion-*.json
 # SQLite database
 db.sqlite3
 
