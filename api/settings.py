@@ -27,15 +27,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0f%!p9_&1ilamlwu^3bzutvv@ql&^($^0!gs15%wehrwaxy$=%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "marmina-client-new-8ljw.vercel.app",
     ".vercel.app",
     ".onrender.com",
+    '127.0.0.1',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "https://marmina-client-new-8ljw.vercel.app"
+    "https://marmina-client-new-8ljw.vercel.app",
+    "http://localhost:5000"
 ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://.*\.vercel\.app$",
@@ -67,6 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'auditlogging',
 ]
 
 MIDDLEWARE = [
@@ -126,19 +129,14 @@ X_FRAME_OPTIONS = "DENY"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 from dotenv import load_dotenv
 load_dotenv()
-db_url = os.environ.get('DATABASE_URL', '')
-parsed = urlparse(db_url)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': parsed.path.lstrip('/'), 
-        'USER': parsed.username,                 
-        'PASSWORD': parsed.password,             
-        'HOST': parsed.hostname,
-        'PORT': parsed.port or 5432,
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 AXES_FAILURE_LIMIT = 3

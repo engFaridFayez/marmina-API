@@ -16,13 +16,9 @@ class IsServant(permissions.BasePermission):
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.role == "خادم عادي"
 
-class CanCreateUser(permissions.BasePermission):
+class AllExceptServant(permissions.BasePermission):
     def has_permission(self, request, view):
         return (
             request.user.is_authenticated and
-            request.user.role in [
-                "امين الشمامسة",
-                "امين مرحلة",
-                "امين اسرة",
-            ]
+            request.user.role in ["امين اسرة", "امين مرحلة", "امين الشمامسة"]
         )

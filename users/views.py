@@ -6,10 +6,11 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
 from rest_framework.generics import ListAPIView
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
+from auditlogging.services.logging import log_action
 from stages.models import Stage
 from users.models import CustomUser, StageLeader
-from users.permissions import CanCreateUser, IsFamilyLeader, IsHead, IsStageLeader
-from users.serializers import ProfileSerializer, RegisterSerializer, UserSerializer
+from users.permissions import AllExceptServant, IsHead
+from users.serializers import ProfileSerializer, UserSerializer
 from rest_framework.generics import RetrieveAPIView
 
 logger = logging.getLogger(__name__)
@@ -69,13 +70,20 @@ class GetSingleUserView(RetrieveAPIView):
     lookup_field = 'id'
 
 class NewUserView(APIView):
-    permission_classes = [CanCreateUser]
+    permission_classes = [AllExceptServant]
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
 
         if serializer.is_valid():
             user = serializer.save()
+
+            log_action(
+                actor=request.user,
+                action="block",
+                message=f"{request.user.full_name} created {user.full_name}",
+                target_user=user
+            )
 
             return Response({
                 "message": "User Created Successfully",
@@ -93,17 +101,27 @@ class DeleteUserView(APIView):
         return Response({"message":"User deleted Successfully"},status=200)
 
 class UpdateUserStatusView(APIView):
-    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+    permission_classes = [AllExceptServant]
 
     def post(self,request):
         data = request.data
+        message = ""
         user = CustomUser.objects.get(pk=data['id'])
         if user.is_active == False:
             user.is_active = True
+            message = f"{request.user.full_name} unblocked {user.full_name}"
         else:
             user.is_active = False
+            message = f"{request.user.full_name} blocked {user.full_name}"
 
         user.save()
+        
+        log_action(
+            actor=request.user,
+            action="block",
+            message=message,
+            target_user=user
+        )
         return Response({"Message": f"user {user.username} is now {'active' if user.is_active else 'inactive'}",},status=200)
     
 class UpdateMyProfile(APIView):
@@ -128,7 +146,7 @@ class UpdateMyProfile(APIView):
         
         return Response(serializer.errors, status=400)
 class AdminUpdateUser(APIView):
-    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+    permission_classes = [AllExceptServant]
     parser_classes = [MultiPartParser, FormParser, JSONParser] 
 
 
@@ -151,6 +169,12 @@ class AdminUpdateUser(APIView):
 
         if serializer.is_valid():
             serializer.save()
+            log_action(
+                actor=request.user,
+                action="update",
+                message=f"{request.user.full_name} updated {user.full_name}",
+                target_user=user
+            )
             return Response({
                 "message": "User updated successfully",
                 "user": serializer.data
@@ -158,7 +182,7 @@ class AdminUpdateUser(APIView):
         
         return Response(serializer.errors, status=400)
 class AdminResetUserPassword(APIView):
-    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+    permission_classes = [AllExceptServant]
 
     def post(self, request):
         target_user_id = request.data.get("target_user")
@@ -180,6 +204,12 @@ class AdminResetUserPassword(APIView):
 
         try:
             validate_password(new_password, user)
+            log_action(
+                actor=request.user,
+                action="update",
+                message=f"{request.user.full_name} change the password for {user.full_name}",
+                target_user=user
+            )
         except Exception as e:
             return Response(
                 {"response": list(e.messages)},

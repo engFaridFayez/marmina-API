@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/drive/',include('drive.urls')),
     path('api/',include('results.urls')),
     path('api/',include('attendance.urls')),
+    path('api/',include('auditlogging.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
