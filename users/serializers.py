@@ -26,6 +26,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             'slogan',
             'parent_phone',
             'whatsapp',
+            'is_staff',
 
         ]
 

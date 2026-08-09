@@ -22,6 +22,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['username'] = self.user.username
         data['first_name'] = self.user.first_name
         data['last_name']= self.user.last_name
+        data['is_staff'] = self.user.is_staff
         data['role'] = self.user.role
         data['id'] = self.user.id
 
