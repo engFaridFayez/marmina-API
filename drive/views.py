@@ -8,12 +8,25 @@ import requests
 def get_alhan(request):
     family_id = request.GET.get("family")
 
-    family = Family.objects.get(id=family_id)
-    folder_id = family.drive_folder_id
+    # المستخدم ليس مرتبطًا بأسرة
+    if not family_id or family_id == "NaN":
+        return JsonResponse([], safe=False)
+
+    try:
+        family = Family.objects.get(id=int(family_id))
+    except (ValueError, Family.DoesNotExist):
+        return JsonResponse([], safe=False)
+
+    # الأسرة ليس لها فولدر ألحان
+    if not family.drive_folder_id:
+        return JsonResponse([], safe=False)
 
     service = get_drive_service()
 
-    files = get_all_audio_files(service, folder_id)
+    files = get_all_audio_files(
+        service,
+        family.drive_folder_id
+    )
 
     return JsonResponse(files, safe=False)
 
