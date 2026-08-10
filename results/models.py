@@ -17,6 +17,31 @@ class Exam(models.Model):
 
     def __str__(self):
         return self.name
+    
+class SubjectExam(models.Model):
+    subject = models.ForeignKey(
+        Subject,
+        on_delete=models.CASCADE,
+        related_name="subject_exams"
+    )
+
+    exam = models.ForeignKey(
+        Exam,
+        on_delete=models.CASCADE
+    )
+
+    max_grade = models.IntegerField()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["subject", "exam"],
+                name="unique_subject_exam"
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.subject.name} - {self.exam.name}"
         
 class StudentEnrollment(models.Model):
     STATUS_CHOICES = [
@@ -54,13 +79,8 @@ class Result(models.Model):
         related_name="results"
     )
 
-    subject = models.ForeignKey(
-        Subject,
-        on_delete=models.CASCADE
-    )
-
-    exam = models.ForeignKey(
-        Exam,
+    subject_exam = models.ForeignKey(
+        SubjectExam,
         on_delete=models.CASCADE
     )
 
@@ -71,8 +91,7 @@ class Result(models.Model):
             models.UniqueConstraint(
                 fields=[
                     "enrollment",
-                    "subject",
-                    "exam",
+                    "subject_exam",
                 ],
                 name="unique_result_per_enrollment_subject_exam"
             )
@@ -82,6 +101,7 @@ class Result(models.Model):
         return self.enrollment.student.full_name
 
     def is_success(self):
-        return self.points >= self.subject.success_grade
-
-    
+        return (
+            self.points >=
+            self.subject_exam.subject.success_grade
+        )
