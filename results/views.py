@@ -5,13 +5,17 @@ from users.models import CustomUser
 from stages.models import Family
 from django.db import transaction
 from django.db import IntegrityError
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
-from results.permissions import can_manage_family, can_manage_student, can_manage_enrollment
+from results.permissions import can_manage_family, can_manage_student, can_manage_enrollment,is_results_admin
 from results.models import (
     Exam,
     Result,
     Subject,
     StudentEnrollment,
+    SubjectExam,
+    SubjectComponent,
+    ComponentExam,
 )
 
 from results.serializers import (
@@ -20,7 +24,11 @@ from results.serializers import (
     SubjectSerializer,
     StudentEnrollmentSerializer,
     ResultWriteSerializer,
+    SubjectExamSerializer,
+    SubjectComponentSerializer,
+    ComponentExamSerializer,
 )
+
 
 
 # =========================
@@ -42,7 +50,8 @@ class MyResults(APIView):
 
         if exam_id:
             results = results.filter(
-                exam=exam_id
+                Q(subject_exam__exam_id=exam_id) |
+                Q(component_exam__exam_id=exam_id)
             )
 
         if enrollment_id:
@@ -234,8 +243,10 @@ class EnrollmentResults(APIView):
             enrollment=enrollment
         ).select_related(
             "enrollment__student",
-            "subject",
-            "exam",
+            "subject_exam__subject",
+            "subject_exam__exam",
+            "component_exam__component__subject",
+            "component_exam__exam",
         )
 
         serializer = ResultSerializer(
@@ -570,3 +581,297 @@ class PromoteStudents(APIView):
                 "failed_count": len(failed_ids),
             }
         )
+
+
+
+class ResultFamilies(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+
+        user = request.user
+
+        # =========================
+        # Admin / أمين الشمامسة
+        # =========================
+
+        if user.role == "admin" or user.is_superuser:
+            families = Family.objects.all()
+
+        elif user.role == "امين الشمامسة":
+            families = Family.objects.all()
+
+        # =========================
+        # أمين المرحلة
+        # =========================
+
+        elif user.role == "امين مرحلة":
+            families = Family.objects.filter(
+                stage__leaders=user
+            )
+
+        # =========================
+        # أمين الأسرة / المساعد / الخادم
+        # =========================
+
+        elif user.role in [
+            "خادم عادي",
+            "امين اسرة",
+            "امين مساعد اسرة",
+        ]:
+            families = Family.objects.filter(
+                id=user.family_id
+            )
+
+        # =========================
+        # أي مستخدم آخر
+        # =========================
+
+        else:
+            families = Family.objects.none()
+
+        families = families.select_related(
+            "stage",
+            "next_family",
+        ).order_by(
+            "stage__name",
+            "name"
+        )
+
+        data = []
+
+        for family in families:
+
+            students_count = CustomUser.objects.filter(
+                family=family,
+                role="مخدوم"
+            ).count()
+
+            data.append({
+                "id": family.id,
+                "name": family.name,
+                "year": family.year,
+                "stage": (
+                    family.stage.name
+                    if family.stage
+                    else None
+                ),
+                "students_count": students_count,
+            })
+
+        return Response(data)
+
+
+
+class Subjects(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        subjects = Subject.objects.all()
+        serializer = SubjectSerializer(subjects, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SubjectSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        subject = serializer.save()
+        return Response(SubjectSerializer(subject).data, status=201)
+
+
+class SubjectDetail(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def patch(self, request, subject_id):
+        subject = get_object_or_404(Subject, id=subject_id)
+        serializer = SubjectSerializer(subject, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        subject = serializer.save()
+        return Response(SubjectSerializer(subject).data)
+
+    def delete(self, request, subject_id):
+        subject = get_object_or_404(Subject, id=subject_id)
+        subject.delete()
+        return Response(status=204)
+
+
+# =========================
+# Exams
+# =========================
+
+class Exams(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        exams = Exam.objects.all()
+        serializer = ExamSerializer(exams, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ExamSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        exam = serializer.save()
+        return Response(ExamSerializer(exam).data, status=201)
+
+
+class ExamDetail(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def patch(self, request, exam_id):
+        exam = get_object_or_404(Exam, id=exam_id)
+        serializer = ExamSerializer(exam, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        exam = serializer.save()
+        return Response(ExamSerializer(exam).data)
+
+    def delete(self, request, exam_id):
+        exam = get_object_or_404(Exam, id=exam_id)
+        exam.delete()
+        return Response(status=204)
+
+
+# =========================
+# Subject Exams (join records)
+# =========================
+
+class SubjectExams(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        subject_exams = SubjectExam.objects.select_related("subject", "exam")
+
+        exam_id = request.GET.get("exam")
+        subject_id = request.GET.get("subject")
+
+        if exam_id:
+            subject_exams = subject_exams.filter(exam_id=exam_id)
+
+        if subject_id:
+            subject_exams = subject_exams.filter(subject_id=subject_id)
+
+        serializer = SubjectExamSerializer(subject_exams, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SubjectExamSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            subject_exam = serializer.save()
+        except IntegrityError:
+            return Response(
+                {"detail": "توجد بالفعل درجة لهذه المادة في هذا الامتحان."},
+                status=400
+            )
+
+        return Response(SubjectExamSerializer(subject_exam).data, status=201)
+
+
+class SubjectExamDetail(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def patch(self, request, subject_exam_id):
+        subject_exam = get_object_or_404(SubjectExam, id=subject_exam_id)
+        serializer = SubjectExamSerializer(subject_exam, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        subject_exam = serializer.save()
+        return Response(SubjectExamSerializer(subject_exam).data)
+
+    def delete(self, request, subject_exam_id):
+        subject_exam = get_object_or_404(SubjectExam, id=subject_exam_id)
+        subject_exam.delete()
+        return Response(status=204)
+
+
+# =========================
+# Subject Components (مزامير الأجبية)
+# =========================
+
+class SubjectComponents(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        components = SubjectComponent.objects.select_related("subject")
+
+        subject_id = request.GET.get("subject")
+        if subject_id:
+            components = components.filter(subject_id=subject_id)
+
+        serializer = SubjectComponentSerializer(components, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SubjectComponentSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        component = serializer.save()
+        return Response(SubjectComponentSerializer(component).data, status=201)
+
+
+class SubjectComponentDetail(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def patch(self, request, component_id):
+        component = get_object_or_404(SubjectComponent, id=component_id)
+        serializer = SubjectComponentSerializer(component, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        component = serializer.save()
+        return Response(SubjectComponentSerializer(component).data)
+
+    def delete(self, request, component_id):
+        component = get_object_or_404(SubjectComponent, id=component_id)
+        component.delete()
+        return Response(status=204)
+
+
+# =========================
+# Component Exams (join records)
+# =========================
+
+class ComponentExams(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        component_exams = ComponentExam.objects.select_related(
+            "component", "component__subject", "exam"
+        )
+
+        exam_id = request.GET.get("exam")
+        component_id = request.GET.get("component")
+
+        if exam_id:
+            component_exams = component_exams.filter(exam_id=exam_id)
+
+        if component_id:
+            component_exams = component_exams.filter(component_id=component_id)
+
+        serializer = ComponentExamSerializer(component_exams, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ComponentExamSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            component_exam = serializer.save()
+        except IntegrityError:
+            return Response(
+                {"detail": "توجد بالفعل درجة لهذا الجزء في هذا الامتحان."},
+                status=400
+            )
+
+        return Response(ComponentExamSerializer(component_exam).data, status=201)
+
+
+class ComponentExamDetail(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def patch(self, request, component_exam_id):
+        component_exam = get_object_or_404(ComponentExam, id=component_exam_id)
+        serializer = ComponentExamSerializer(component_exam, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        component_exam = serializer.save()
+        return Response(ComponentExamSerializer(component_exam).data)
+
+    def delete(self, request, component_exam_id):
+        component_exam = get_object_or_404(ComponentExam, id=component_exam_id)
+        component_exam.delete()
+        return Response(status=204)

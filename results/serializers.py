@@ -38,25 +38,17 @@ class ResultSerializer(serializers.ModelSerializer):
         read_only=True
     )
 
-    subject = serializers.CharField(
-        source="subject.name",
-        read_only=True
-    )
+    subject = serializers.SerializerMethodField()
 
-    exam = serializers.CharField(
-        source="exam.name",
-        read_only=True
-    )
+    component = serializers.SerializerMethodField()
 
-    final_grade = serializers.IntegerField(
-        source="subject.final_grade",
-        read_only=True
-    )
+    exam = serializers.SerializerMethodField()
 
-    success_grade = serializers.IntegerField(
-        source="subject.success_grade",
-        read_only=True
-    )
+    max_grade = serializers.SerializerMethodField()
+
+    final_grade = serializers.SerializerMethodField()
+
+    success_grade = serializers.SerializerMethodField()
 
     is_success = serializers.SerializerMethodField()
 
@@ -66,13 +58,65 @@ class ResultSerializer(serializers.ModelSerializer):
             "id",
             "student",
             "subject",
+            "component",
             "exam",
             "points",
+            "max_grade",
             "final_grade",
             "success_grade",
             "is_success",
         ]
 
+    def get_subject(self, obj):
+        if obj.subject_exam:
+            return obj.subject_exam.subject.name
+
+        if obj.component_exam:
+            return obj.component_exam.component.subject.name
+
+        return None
+
+    def get_component(self, obj):
+        if obj.component_exam:
+            return obj.component_exam.component.name
+
+        return None
+
+    def get_exam(self, obj):
+        if obj.subject_exam:
+            return obj.subject_exam.exam.name
+
+        if obj.component_exam:
+            return obj.component_exam.exam.name
+
+        return None
+
+    def get_max_grade(self, obj):
+        if obj.subject_exam:
+            return obj.subject_exam.max_grade
+
+        if obj.component_exam:
+            return obj.component_exam.max_grade
+
+        return None
+
+    def get_final_grade(self, obj):
+        if obj.subject_exam:
+            return obj.subject_exam.subject.final_grade
+
+        if obj.component_exam:
+            return obj.component_exam.component.subject.final_grade
+
+        return None
+
+    def get_success_grade(self, obj):
+        if obj.subject_exam:
+            return obj.subject_exam.success_grade
+
+        if obj.component_exam:
+            return obj.component_exam.success_grade
+
+        return None
     def get_is_success(self, obj):
         return obj.is_success()
 
@@ -82,84 +126,74 @@ class ResultWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Result
         fields = [
-            "subject",
-            "exam",
+            "subject_exam",
+            "component_exam",
             "points",
         ]
 
     def validate(self, attrs):
 
+        subject_exam = attrs.get("subject_exam")
+
+        component_exam = attrs.get("component_exam")
+
+        points = attrs.get("points")
+
         # =========================
-        # Subject
+        # Subject / Component
         # =========================
 
-        subject = attrs.get("subject")
+        if self.instance:
 
-        if subject is None and self.instance:
-            subject = self.instance.subject
+            if subject_exam is None:
+                subject_exam = self.instance.subject_exam
+
+            if component_exam is None:
+                component_exam = self.instance.component_exam
+
+            if points is None:
+                points = self.instance.points
+
+        # لازم واحد فقط
+        if bool(subject_exam) == bool(component_exam):
+            raise serializers.ValidationError({
+                "detail": (
+                    "يجب تحديد المادة أو الجزء "
+                    "وليس الاثنين معًا."
+                )
+            })
 
         # =========================
         # Points
         # =========================
-
-        points = attrs.get("points")
-
-        if points is None and self.instance:
-            points = self.instance.points
 
         if points < 0:
             raise serializers.ValidationError({
                 "points": "الدرجة لا يمكن أن تكون أقل من صفر."
             })
 
-        if points > subject.final_grade:
+        # =========================
+        # Max Grade
+        # =========================
+
+        if subject_exam:
+            max_grade = subject_exam.max_grade
+
+        else:
+            max_grade = component_exam.max_grade
+
+        if points > max_grade:
             raise serializers.ValidationError({
                 "points": (
                     f"الدرجة لا يمكن أن تتجاوز "
-                    f"{subject.final_grade}."
+                    f"{max_grade}."
                 )
             })
-
-        # =========================
-        # Duplicate Result
-        # =========================
-
-        if self.instance:
-
-            enrollment = self.instance.enrollment
-            exam = attrs.get("exam", self.instance.exam)
-
-        else:
-
-            enrollment = self.context.get("enrollment")
-            exam = attrs.get("exam")
-
-        if enrollment and subject and exam:
-
-            exists = Result.objects.filter(
-                enrollment=enrollment,
-                subject=subject,
-                exam=exam,
-            )
-
-            # في حالة التعديل:
-            # نستبعد النتيجة الحالية من البحث
-            if self.instance:
-                exists = exists.exclude(
-                    id=self.instance.id
-                )
-
-            if exists.exists():
-                raise serializers.ValidationError({
-                    "detail": (
-                        "توجد نتيجة بالفعل لهذه المادة "
-                        "في هذا الامتحان."
-                    )
-                })
 
         return attrs
 
 class StudentEnrollmentSerializer(serializers.ModelSerializer):
+    
 
     student_name = serializers.CharField(
         source="student.full_name",
@@ -190,4 +224,83 @@ class StudentEnrollmentSerializer(serializers.ModelSerializer):
             "stage_name",
             "academic_year",
             "status",
+        ]
+
+
+from results.models import SubjectExam, SubjectComponent, ComponentExam
+
+
+class SubjectExamSerializer(serializers.ModelSerializer):
+
+    subject_name = serializers.CharField(
+        source="subject.name", read_only=True
+    )
+    exam_name = serializers.CharField(
+        source="exam.name", read_only=True
+    )
+
+    class Meta:
+        model = SubjectExam
+        fields = [
+            "id",
+            "subject",
+            "subject_name",
+            "exam",
+            "exam_name",
+            "max_grade",
+            "success_grade",
+        ]
+
+    def validate(self, attrs):
+        subject = attrs.get("subject") or getattr(self.instance, "subject", None)
+        max_grade = attrs.get("max_grade") or getattr(self.instance, "max_grade", None)
+        success_grade = attrs.get("success_grade", None)
+
+        if success_grade is not None and max_grade is not None and success_grade > max_grade:
+            raise serializers.ValidationError({
+                "success_grade": "درجة النجاح لا يمكن أن تتجاوز الدرجة القصوى."
+            })
+
+        return attrs
+
+
+class SubjectComponentSerializer(serializers.ModelSerializer):
+
+    subject_name = serializers.CharField(
+        source="subject.name", read_only=True
+    )
+
+    class Meta:
+        model = SubjectComponent
+        fields = [
+            "id",
+            "subject",
+            "subject_name",
+            "name",
+        ]
+
+
+class ComponentExamSerializer(serializers.ModelSerializer):
+
+    component_name = serializers.CharField(
+        source="component.name", read_only=True
+    )
+    subject_name = serializers.CharField(
+        source="component.subject.name", read_only=True
+    )
+    exam_name = serializers.CharField(
+        source="exam.name", read_only=True
+    )
+
+    class Meta:
+        model = ComponentExam
+        fields = [
+            "id",
+            "component",
+            "component_name",
+            "subject_name",
+            "exam",
+            "exam_name",
+            "max_grade",
+            "success_grade",
         ]

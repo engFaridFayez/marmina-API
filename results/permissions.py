@@ -72,3 +72,14 @@ def can_manage_enrollment(user, enrollment):
         user,
         enrollment.family
     )
+
+
+def is_results_admin(user):
+
+    if user.role == "admin" or user.is_superuser:
+        return True
+
+    if user.role == "امين الشمامسة":
+        return True
+
+    return False
