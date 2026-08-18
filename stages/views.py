@@ -5,7 +5,11 @@ from stages.serializers import  FamilyDetailSerializer, FamilySerializer, StageS
 # Create your views here.
 
 class FamilyDetailView(RetrieveAPIView):
-    queryset = Family.objects.prefetch_related("customuser_set").all()
+    queryset = Family.objects.prefetch_related(
+        "customuser_set",
+        "stage__leaders",
+    ).all()
+
     serializer_class = FamilyDetailSerializer
 
 class FamilyListView(ListAPIView):

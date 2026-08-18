@@ -34,36 +34,49 @@ from results.models import StudentEnrollment
 
 def can_manage_student(user, student):
 
-    # Admin
+    print("========== CAN MANAGE STUDENT ==========")
+    print("USER:", user.id, user.username)
+    print("USER ROLE:", repr(user.role))
+    print("STUDENT:", student.id, student.full_name)
+    print("STUDENT FAMILY:", student.family_id)
+
     if user.role == "admin" or user.is_superuser:
+        print("ADMIN => TRUE")
         return True
 
-    # أمين الشمامسة
     if user.role == "امين الشمامسة":
+        print("AMIN SHAMAMSA => TRUE")
         return True
 
-    # أمين المرحلة
     if user.role == "امين مرحلة":
-        return StudentEnrollment.objects.filter(
+        exists = StudentEnrollment.objects.filter(
             student=student,
             family__stage__leaders=user
         ).exists()
 
-    # أمين الأسرة والمساعد
+        print("AMIN MARHLA =>", exists)
+
+        return exists
+
     if user.role in [
         "خادم عادي",
         "امين اسرة",
         "امين مساعد اسرة",
     ]:
-        return StudentEnrollment.objects.filter(
+        exists = StudentEnrollment.objects.filter(
             student=student,
             family=user.family
         ).exists()
 
-    # المخدوم نفسه
+        print("FAMILY ROLE =>", exists)
+
+        return exists
+
     if user.id == student.id:
+        print("SELF => TRUE")
         return True
 
+    print("DEFAULT => FALSE")
     return False
 
 def can_manage_enrollment(user, enrollment):

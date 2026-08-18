@@ -3,7 +3,7 @@ from stages.models import Family
 from stages.serializers import FamilyMiniSerializer, StageMiniSerializer
 from users.models import CustomUser
 from axes.handlers.proxy import AxesProxyHandler
-
+from stages.models import Stage
 
 class ProfileSerializer(serializers.ModelSerializer):
     family = FamilyMiniSerializer()
@@ -73,6 +73,11 @@ class UserSerializer(serializers.ModelSerializer):
     is_blocked = serializers.SerializerMethodField()
     password = serializers.CharField(required=False, write_only=True)
     confirm_password = serializers.CharField(required=False, write_only=True)
+    stage = serializers.IntegerField(
+        required=False,
+        allow_null=True,
+        write_only=True
+    )
 
     # def get_family(self, obj):
     #     # ← skip family if we're already nested inside FamilySerializer
@@ -113,6 +118,7 @@ class UserSerializer(serializers.ModelSerializer):
             'is_active',
             'is_blocked',
             'slogan',
+            'stage',
         ]
         extra_kwargs = {
             'password': {'write_only': True}
@@ -160,6 +166,8 @@ class UserSerializer(serializers.ModelSerializer):
         password = validated_data.pop('password', None)
         validated_data.pop('confirm_password', None)
 
+        stage_id = validated_data.pop('stage', None)
+
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
 
@@ -167,4 +175,21 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
 
         instance.save()
+
+        # Update stage leader
+        if stage_id is not None:
+
+            # Remove user from all current stages
+            instance.managed_stages.clear()
+
+            # Add user to the new stage
+            try:
+                stage = Stage.objects.get(id=stage_id)
+            except Stage.DoesNotExist:
+                raise serializers.ValidationError({
+                    "stage": "Stage not found."
+                })
+
+            stage.leaders.add(instance)
+
         return instance

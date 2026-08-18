@@ -147,19 +147,21 @@ class UpdateMyProfile(APIView):
         return Response(serializer.errors, status=400)
 class AdminUpdateUser(APIView):
     permission_classes = [AllExceptServant]
-    parser_classes = [MultiPartParser, FormParser, JSONParser] 
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
 
-
-    def patch(self,request,user_id):
-        
+    def patch(self, request, user_id):
+        print("REQUEST DATA:", request.data)
         try:
             user = CustomUser.objects.get(id=user_id)
-        except user.DoesNotExist:
-            return Response({
-                "error":"User Not Found"
-            },status=status.HTTP_404_NOT_FOUND)
-        
-        data = request.data
+        except CustomUser.DoesNotExist:
+            return Response(
+                {"error": "User Not Found"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        data = request.data.copy()
+
+        stage_id = data.pop("stage_id", None)
 
         serializer = UserSerializer(
             user,
@@ -167,20 +169,47 @@ class AdminUpdateUser(APIView):
             partial=True
         )
 
-        if serializer.is_valid():
-            serializer.save()
-            log_action(
-                actor=request.user,
-                action="update",
-                message=f"{request.user.full_name} updated {user.full_name}",
-                target_user=user
+        if not serializer.is_valid():
+            print("VALIDATED DATA:", serializer.validated_data)
+            return Response(
+                serializer.errors,
+                status=status.HTTP_400_BAD_REQUEST
             )
-            return Response({
+
+        user = serializer.save()
+
+        if stage_id is not None:
+
+            # إزالة المستخدم من أي مرحلة قديمة
+            user.managed_stages.clear()
+
+            # إضافة المستخدم للمرحلة الجديدة
+            if stage_id:
+                try:
+                    stage = Stage.objects.get(id=stage_id)
+                except Stage.DoesNotExist:
+                    return Response(
+                        {"error": "Stage Not Found"},
+                        status=status.HTTP_404_NOT_FOUND
+                    )
+
+                stage.leaders.add(user)
+
+        log_action(
+            actor=request.user,
+            action="update",
+            message=f"{request.user.full_name} updated {user.full_name}",
+            target_user=user
+        )
+        print("SERIALIZER ERRORS:", serializer.errors)
+        return Response(
+            {
                 "message": "User updated successfully",
-                "user": serializer.data
-            }, status=200)
-        
-        return Response(serializer.errors, status=400)
+                "user": UserSerializer(user).data
+            },
+            status=status.HTTP_200_OK
+        )
+
 class AdminResetUserPassword(APIView):
     permission_classes = [AllExceptServant]
 

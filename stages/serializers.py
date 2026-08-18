@@ -4,9 +4,18 @@ from users.models import CustomUser
 from .models import Stage, Family
 
 class StageMiniSerializer(serializers.ModelSerializer): 
+    leaders = serializers.SerializerMethodField()
     class Meta:
         model = Stage
-        fields = ["id", "name"]
+        fields = ["id", "name","leaders"]
+
+    def get_leaders(self, obj):
+        from users.serializers import UserSerializer  # lazy import
+        return UserSerializer(
+            obj.leaders.all(),
+            many=True,
+            context={**self.context, 'exclude_family': True}  # ← tell UserSerializer to skip family
+        ).data
 
 
 class FamilySerializer(serializers.ModelSerializer):
@@ -39,7 +48,6 @@ class FamilySerializer(serializers.ModelSerializer):
 
 class StageSerializer(serializers.ModelSerializer):
     families = FamilySerializer(many=True, read_only=True)
-
     class Meta:
         model = Stage
         fields = ['id', 'name', 'families']
@@ -63,11 +71,13 @@ class FamilyDetailSerializer(serializers.ModelSerializer):
         many=True,
         read_only=True
     )
+    stage = StageMiniSerializer(read_only=True)
     class Meta:
         model = Family
         fields = [
             "id",
             "name",
             "year",
-            "users"
+            "users",
+            "stage"
         ]
