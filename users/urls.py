@@ -1,3 +1,4 @@
+
 from django.urls import path
 
 from users import views
@@ -17,5 +18,5 @@ urlpatterns = [
     path("admin-reset-password/", views.AdminResetUserPassword.as_view(), name='admin-reset-password'),
     path('users/user-reset-password/', views.UserUpdatePassword.as_view(), name='user-reset-password'),
     path('users/change-user-role/', views.ManageUserRoles.as_view(), name='manage-user-role'),
-    path('admin/change-stage-leader/',views.UpdateStageLeader.as_view())
+    path('admin/change-stage-leader/',views.UpdateStageLeader.as_view()),
 ]
