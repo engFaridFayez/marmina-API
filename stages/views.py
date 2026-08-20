@@ -5,13 +5,39 @@ from stages.serializers import  FamilyDetailSerializer, FamilySerializer, StageS
 # Create your views here.
 
 class FamilyDetailView(RetrieveAPIView):
-    queryset = Family.objects.prefetch_related(
-        "customuser_set",
-        "stage__leaders",
-    ).all()
-
     serializer_class = FamilyDetailSerializer
 
+    def get_queryset(self):
+        user = self.request.user
+
+        # أمين الشمامسة / Admin
+        if user.role == "امين الشمامسة" or user.is_staff:
+            return Family.objects.prefetch_related(
+                "customuser_set",
+                "stage__leaders",
+            )
+
+        # أمين مرحلة
+        if user.role == "امين مرحلة":
+            return Family.objects.filter(
+                stage__leaders=user
+            ).prefetch_related(
+                "customuser_set",
+                "stage__leaders",
+            )
+
+        # المستخدم ليس له أسرة
+        if not user.family:
+            return Family.objects.none()
+
+        # أي مستخدم عادي:
+        # يشوف أسرته فقط
+        return Family.objects.filter(
+            id=user.family.id
+        ).prefetch_related(
+            "customuser_set",
+            "stage__leaders",
+        )
 class FamilyListView(ListAPIView):
     serializer_class = FamilySerializer
 
