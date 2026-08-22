@@ -227,7 +227,7 @@ class StudentEnrollmentSerializer(serializers.ModelSerializer):
         ]
 
 
-from results.models import SubjectExam, SubjectComponent, ComponentExam
+from results.models import SubjectExam
 
 
 class SubjectExamSerializer(serializers.ModelSerializer):
@@ -263,44 +263,3 @@ class SubjectExamSerializer(serializers.ModelSerializer):
 
         return attrs
 
-
-class SubjectComponentSerializer(serializers.ModelSerializer):
-
-    subject_name = serializers.CharField(
-        source="subject.name", read_only=True
-    )
-
-    class Meta:
-        model = SubjectComponent
-        fields = [
-            "id",
-            "subject",
-            "subject_name",
-            "name",
-        ]
-
-
-class ComponentExamSerializer(serializers.ModelSerializer):
-
-    component_name = serializers.CharField(
-        source="component.name", read_only=True
-    )
-    subject_name = serializers.CharField(
-        source="component.subject.name", read_only=True
-    )
-    exam_name = serializers.CharField(
-        source="exam.name", read_only=True
-    )
-
-    class Meta:
-        model = ComponentExam
-        fields = [
-            "id",
-            "component",
-            "component_name",
-            "subject_name",
-            "exam",
-            "exam_name",
-            "max_grade",
-            "success_grade",
-        ]

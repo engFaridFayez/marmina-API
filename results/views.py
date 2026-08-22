@@ -7,15 +7,13 @@ from django.db import transaction
 from django.db import IntegrityError
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
-from results.permissions import can_manage_family, can_manage_student, can_manage_enrollment,is_results_admin
+from results.permissions import can_manage_family, can_manage_student, can_manage_enrollment
 from results.models import (
     Exam,
     Result,
     Subject,
     StudentEnrollment,
     SubjectExam,
-    SubjectComponent,
-    ComponentExam,
 )
 
 from results.serializers import (
@@ -25,8 +23,6 @@ from results.serializers import (
     StudentEnrollmentSerializer,
     ResultWriteSerializer,
     SubjectExamSerializer,
-    SubjectComponentSerializer,
-    ComponentExamSerializer,
 )
 
 
@@ -779,99 +775,4 @@ class SubjectExamDetail(APIView):
     def delete(self, request, subject_exam_id):
         subject_exam = get_object_or_404(SubjectExam, id=subject_exam_id)
         subject_exam.delete()
-        return Response(status=204)
-
-
-# =========================
-# Subject Components (مزامير الأجبية)
-# =========================
-
-class SubjectComponents(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get(self, request):
-        components = SubjectComponent.objects.select_related("subject")
-
-        subject_id = request.GET.get("subject")
-        if subject_id:
-            components = components.filter(subject_id=subject_id)
-
-        serializer = SubjectComponentSerializer(components, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = SubjectComponentSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        component = serializer.save()
-        return Response(SubjectComponentSerializer(component).data, status=201)
-
-
-class SubjectComponentDetail(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
-    def patch(self, request, component_id):
-        component = get_object_or_404(SubjectComponent, id=component_id)
-        serializer = SubjectComponentSerializer(component, data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-        component = serializer.save()
-        return Response(SubjectComponentSerializer(component).data)
-
-    def delete(self, request, component_id):
-        component = get_object_or_404(SubjectComponent, id=component_id)
-        component.delete()
-        return Response(status=204)
-
-
-# =========================
-# Component Exams (join records)
-# =========================
-
-class ComponentExams(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get(self, request):
-        component_exams = ComponentExam.objects.select_related(
-            "component", "component__subject", "exam"
-        )
-
-        exam_id = request.GET.get("exam")
-        component_id = request.GET.get("component")
-
-        if exam_id:
-            component_exams = component_exams.filter(exam_id=exam_id)
-
-        if component_id:
-            component_exams = component_exams.filter(component_id=component_id)
-
-        serializer = ComponentExamSerializer(component_exams, many=True)
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = ComponentExamSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        try:
-            component_exam = serializer.save()
-        except IntegrityError:
-            return Response(
-                {"detail": "توجد بالفعل درجة لهذا الجزء في هذا الامتحان."},
-                status=400
-            )
-
-        return Response(ComponentExamSerializer(component_exam).data, status=201)
-
-
-class ComponentExamDetail(APIView):
-    permission_classes = [permissions.IsAuthenticated]
-
-    def patch(self, request, component_exam_id):
-        component_exam = get_object_or_404(ComponentExam, id=component_exam_id)
-        serializer = ComponentExamSerializer(component_exam, data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-        component_exam = serializer.save()
-        return Response(ComponentExamSerializer(component_exam).data)
-
-    def delete(self, request, component_exam_id):
-        component_exam = get_object_or_404(ComponentExam, id=component_exam_id)
-        component_exam.delete()
         return Response(status=204)

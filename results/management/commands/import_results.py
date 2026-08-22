@@ -10,8 +10,6 @@ from results.models import (
     Subject,
     Exam,
     SubjectExam,
-    SubjectComponent,
-    ComponentExam,
     StudentEnrollment,
     Result,
 )

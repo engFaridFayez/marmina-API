@@ -16,12 +16,6 @@ urlpatterns = [
     path("subject-exams/", views.SubjectExams.as_view()),
     path("subject-exams/<int:subject_exam_id>/", views.SubjectExamDetail.as_view()),
 
-    path("subject-components/", views.SubjectComponents.as_view()),
-    path("subject-components/<int:component_id>/", views.SubjectComponentDetail.as_view()),
-
-    path("component-exams/", views.ComponentExams.as_view()),
-    path("component-exams/<int:component_exam_id>/", views.ComponentExamDetail.as_view()),
-
     path("families/", views.ResultFamilies.as_view()),
     path("families/<int:family_id>/students/", views.FamilyStudents.as_view()),
     path("students/<int:student_id>/enrollments/", views.StudentEnrollments.as_view()),
