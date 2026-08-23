@@ -4,37 +4,41 @@ from results.models import StudentEnrollment
 
 
 def calculate_annual_status(enrollment):
+
     results = enrollment.results.select_related(
         "subject_exam__subject",
-        "component_exam__component__subject",
+        "subject_exam__exam",
     )
 
+    # ==========================================
     # إجمالي درجات كل مادة خلال السنة
+    # ==========================================
+
     subject_points = defaultdict(float)
 
-    # الدرجة النهائية السنوية لكل مادة
+    # ==========================================
+    # المواد الموجودة في النتائج
+    # ==========================================
+
     subjects = {}
 
     for result in results:
 
-        # =========================
-        # Result لمادة عادية
-        # =========================
-        if result.subject_exam:
-            subject = result.subject_exam.subject
+        # ======================================
+        # كل النتائج أصبحت SubjectExam
+        # ======================================
 
-            subject_points[subject.id] += result.points
-            subjects[subject.id] = subject
+        if not result.subject_exam:
+            continue
 
-        # =========================
-        # Result لمكون داخل مادة
-        # مثال: مزامير الأجبية
-        # =========================
-        elif result.component_exam:
-            subject = result.component_exam.component.subject
+        subject = result.subject_exam.subject
 
-            subject_points[subject.id] += result.points
-            subjects[subject.id] = subject
+        subject_points[subject.id] += result.points
+        subjects[subject.id] = subject
+
+    # ==========================================
+    # حساب المواد الراسبة
+    # ==========================================
 
     failed_subjects = 0
     music_failed = False
@@ -43,33 +47,36 @@ def calculate_annual_status(enrollment):
 
         total_points = subject_points[subject_id]
 
-        # =========================
+        # ======================================
         # الألحان
-        # =========================
-        if subject.name == "الألحان":
+        # ======================================
+
+        if subject.name == "الالحان":
 
             if total_points < subject.success_grade:
                 music_failed = True
 
-        # =========================
+        # ======================================
         # الحضور والغياب
-        # =========================
+        # ======================================
+
         elif subject.name == "الحضور والغياب":
 
-            # الحضور لا يؤثر على قرار الترقية
+            # الحضور والغياب لا يؤثر على الترقية
             continue
 
-        # =========================
-        # المواد الدراسية
-        # =========================
+        # ======================================
+        # باقي المواد
+        # ======================================
+
         else:
 
             if total_points < subject.success_grade:
                 failed_subjects += 1
 
-    # =========================
+    # ==========================================
     # قرار السنة
-    # =========================
+    # ==========================================
 
     # راسب في الألحان
     if music_failed:
@@ -84,9 +91,13 @@ def calculate_annual_status(enrollment):
 
 
 def update_annual_status(enrollment):
+
     status = calculate_annual_status(enrollment)
 
     enrollment.status = status
-    enrollment.save(update_fields=["status"])
+
+    enrollment.save(
+        update_fields=["status"]
+    )
 
     return status

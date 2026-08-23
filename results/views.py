@@ -37,17 +37,21 @@ class MyResults(APIView):
     def get(self, request):
 
         student = request.user
+
         exam_id = request.GET.get("exam")
         enrollment_id = request.GET.get("enrollment")
 
         results = Result.objects.filter(
             enrollment__student=student
+        ).select_related(
+            "enrollment__student",
+            "subject_exam__subject",
+            "subject_exam__exam",
         )
 
         if exam_id:
             results = results.filter(
-                Q(subject_exam__exam_id=exam_id) |
-                Q(component_exam__exam_id=exam_id)
+                subject_exam__exam_id=exam_id
             )
 
         if enrollment_id:
@@ -61,7 +65,6 @@ class MyResults(APIView):
         )
 
         return Response(serializer.data)
-
 
 # =========================
 # Subjects
@@ -132,16 +135,31 @@ class FamilyStudents(APIView):
         data = []
 
         for student in students:
+
+            enrollment = (
+                StudentEnrollment.objects
+                .filter(
+                    student=student,
+                    family=family,
+                )
+                .order_by("-academic_year")
+                .first()
+            )
+
             data.append({
                 "id": student.id,
                 "full_name": student.full_name,
+                "status": (
+                    enrollment.status
+                    if enrollment
+                    else None
+                ),
                 "image": (
                     request.build_absolute_uri(student.image.url)
                     if student.image
                     else None
                 ),
             })
-
         return Response({
             "family": {
                 "id": family.id,
@@ -241,8 +259,6 @@ class EnrollmentResults(APIView):
             "enrollment__student",
             "subject_exam__subject",
             "subject_exam__exam",
-            "component_exam__component__subject",
-            "component_exam__exam",
         )
 
         serializer = ResultSerializer(
@@ -309,7 +325,6 @@ class EnrollmentResults(APIView):
             ResultSerializer(result).data,
             status=201
         )
-
 class ResultDetail(APIView):
     permission_classes = [permissions.IsAuthenticated]
 

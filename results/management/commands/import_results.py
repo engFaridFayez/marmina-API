@@ -1,7 +1,8 @@
-import openpyxl
+import pandas as pd
 
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
+from django.db.models.functions import Trim
 
 from users.models import CustomUser
 from stages.models import Family
@@ -17,19 +18,14 @@ from results.models import (
 
 class Command(BaseCommand):
 
-    help = "Import annual results from Excel file"
+    help = "Import results from Excel file"
 
     def add_arguments(self, parser):
+
         parser.add_argument(
             "file",
             type=str,
             help="Path to Excel file"
-        )
-
-        parser.add_argument(
-            "--family",
-            required=True,
-            help="Family name"
         )
 
         parser.add_argument(
@@ -42,275 +38,313 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         file_path = options["file"]
-        family_name = options["family"]
         academic_year = options["academic_year"]
+
+        # ==========================================
+        # Helpers
+        # ==========================================
+
+        def clean(value):
+
+            if pd.isna(value):
+                return None
+
+            if isinstance(value, str):
+                value = value.strip()
+                return value if value else None
+
+            return value
+
+        def normalize(value):
+
+            value = clean(value)
+
+            if value is None:
+                return None
+
+            value = str(value).strip()
+
+            # توحيد الهمزات
+            value = (
+                value
+                .replace("أ", "ا")
+                .replace("إ", "ا")
+                .replace("آ", "ا")
+            )
+
+            # توحيد التاء المربوطة
+            value = value.replace("ة", "ه")
+
+            # إزالة المسافات الزائدة
+            value = " ".join(value.split())
+
+            return value
 
         # ==========================================
         # Load Excel
         # ==========================================
 
         try:
-            workbook = openpyxl.load_workbook(
+
+            df = pd.read_excel(
                 file_path,
-                data_only=True
+                dtype=str
             )
+
         except Exception as e:
+
             raise CommandError(
                 f"Unable to open Excel file: {e}"
             )
+        df = df.loc[
+            :,
+            ~df.columns.astype(str).str.startswith("Unnamed:")
+        ]
 
-        if "Sheet1" not in workbook.sheetnames:
+        # ==========================================
+        # Required Columns
+        # ==========================================
+
+        required_columns = [
+            "username",
+            "family",
+        ]
+
+        missing_columns = [
+            column
+            for column in required_columns
+            if column not in df.columns
+        ]
+
+        if missing_columns:
+
             raise CommandError(
-                "Sheet1 was not found in the Excel file."
+                "Excel file is missing required columns: "
+                + ", ".join(missing_columns)
             )
-
-        sheet = workbook["Sheet1"]
-
-        # ==========================================
-        # Family
-        # ==========================================
-
-        try:
-            family = Family.objects.get(
-                name=family_name
-            )
-        except Family.DoesNotExist:
-            raise CommandError(
-                f'Family "{family_name}" does not exist.'
-            )
-
-        # ==========================================
-        # Subjects
-        # ==========================================
-
-        subjects_config = {
-
-            "الألحان": {
-                "final_grade": 300,
-                "success_grade": 150,
-            },
-
-            "طقس": {
-                "final_grade": 40,
-                "success_grade": 20,
-            },
-
-            "قبطي": {
-                "final_grade": 40,
-                "success_grade": 20,
-            },
-
-            "كتاب مقدس": {
-                "final_grade": 30,
-                "success_grade": 15,
-            },
-
-            "عقيدة": {
-                "final_grade": 25,
-                "success_grade": 12.5,
-            },
-
-            "أجبية": {
-                "final_grade": 15,
-                "success_grade": 7.5,
-            },
-
-            "الحضور والغياب": {
-                "final_grade": 150,
-                "success_grade": 75,
-            },
-        }
-
-        subjects = {}
-
-        for name, config in subjects_config.items():
-
-            subject, created = Subject.objects.get_or_create(
-                name=name,
-                defaults=config
-            )
-
-            if not created:
-
-                changed = False
-
-                if subject.final_grade != config["final_grade"]:
-                    subject.final_grade = config["final_grade"]
-                    changed = True
-
-                if subject.success_grade != config["success_grade"]:
-                    subject.success_grade = config["success_grade"]
-                    changed = True
-
-                if changed:
-                    subject.save()
-
-            subjects[name] = subject
 
         # ==========================================
         # Exams
         # ==========================================
 
-        exams_config = {
-            "ترم 1": 100,
-            "ترم 2": 110,
-            "ترم 3": 90,
-        }
-
         exams = {}
 
-        for name in exams_config:
+        for exam_name in [
+            "الترم الاول",
+            "الترم الثاني",
+            "الترم الثالث",
+        ]:
 
-            exam, _ = Exam.objects.get_or_create(
-                name=name,
-                year=academic_year
+            exam = (
+                Exam.objects
+                .filter(
+                    name=exam_name,
+                    year=academic_year
+                )
+                .first()
             )
 
-            exams[name] = exam
+            if not exam:
+
+                raise CommandError(
+                    f'Exam "{exam_name}" '
+                    f'for year "{academic_year}" '
+                    f'does not exist.'
+                )
+
+            exams[exam_name] = exam
 
         # ==========================================
-        # Subject Exams
+        # Excel Columns Mapping
+        # ==========================================
+        #
+        # Excel Column
+        #       ↓
+        # Subject
+        #       ↓
+        # Exam
+        #
         # ==========================================
 
-        # max_grade = درجة المادة في هذا الترم
-        #
-        # success_grade = نصف درجة الترم
-        #
-        # وليس success_grade السنوي الموجود في Subject
-
-        subject_exam_config = {
+        columns_mapping = {
 
             # ======================================
             # الألحان
             # ======================================
 
-            ("الألحان", "ترم 1"): {
-                "max_grade": 100,
-                "success_grade": 50,
+            "الالحان الترم الأول": {
+                "subject": "الالحان",
+                "exam": "الترم الاول",
             },
 
-            ("الألحان", "ترم 2"): {
-                "max_grade": 110,
-                "success_grade": 55,
+            "الالحان الترم الثاني": {
+                "subject": "الالحان",
+                "exam": "الترم الثاني",
             },
 
-            ("الألحان", "ترم 3"): {
-                "max_grade": 90,
-                "success_grade": 45,
-            },
-
-            # ======================================
-            # مواد ترم واحد
-            # ======================================
-
-            ("طقس", "ترم 1"): {
-                "max_grade": 40,
-                "success_grade": 20,
-            },
-
-            ("قبطي", "ترم 2"): {
-                "max_grade": 40,
-                "success_grade": 20,
-            },
-
-            ("كتاب مقدس", "ترم 3"): {
-                "max_grade": 30,
-                "success_grade": 15,
-            },
-
-            ("عقيدة", "ترم 3"): {
-                "max_grade": 25,
-                "success_grade": 12.5,
+            "الالحان الترم الثالث": {
+                "subject": "الالحان",
+                "exam": "الترم الثالث",
             },
 
             # ======================================
-            # الأجبية
+            # الطقس
             # ======================================
 
-            ("أجبية", "ترم 1"): {
-                "max_grade": 15,
-                "success_grade": 7.5,
+            "الطقس الترم الأول": {
+                "subject": "الطقس",
+                "exam": "الترم الاول",
+            },
+
+            # ======================================
+            # القبطي
+            # ======================================
+
+            "القبطي الترم الثاني": {
+                "subject": "القبطي",
+                "exam": "الترم الثاني",
+            },
+
+            # ======================================
+            # الكتاب المقدس
+            # ======================================
+
+            "الكتاب المقدس الترم الثالث": {
+                "subject": "الكتاب المقدس",
+                "exam": "الترم الثالث",
+            },
+
+            # ======================================
+            # المحفوظات
+            # ======================================
+
+            "المحفوظات الترم الأول": {
+                "subject": "المحفوظات",
+                "exam": "الترم الاول",
+            },
+
+            "المحفوظات الترم الثاني": {
+                "subject": "المحفوظات",
+                "exam": "الترم الثاني",
+            },
+
+            "المحفوظات الترم الثالث": {
+                "subject": "المحفوظات",
+                "exam": "الترم الثالث",
             },
 
             # ======================================
             # الحضور والغياب
             # ======================================
 
-            ("الحضور والغياب", "ترم 1"): {
-                "max_grade": 50,
-                "success_grade": 25,
+            "الحضور والغياب الترم الأول": {
+                "subject": "الحضور والغياب",
+                "exam": "الترم الاول",
             },
 
-            ("الحضور والغياب", "ترم 2"): {
-                "max_grade": 50,
-                "success_grade": 25,
+            "الحضور والغياب الترم الثاني": {
+                "subject": "الحضور والغياب",
+                "exam": "الترم الثاني",
             },
 
-            ("الحضور والغياب", "ترم 3"): {
-                "max_grade": 50,
-                "success_grade": 25,
+            "الحضور والغياب الترم الثالث": {
+                "subject": "الحضور والغياب",
+                "exam": "الترم الثالث",
             },
         }
 
-        subject_exams = {}
+        # ==========================================
+        # Normalize Mapping
+        # ==========================================
 
-        for (
-            subject_name,
-            exam_name
-        ), config in subject_exam_config.items():
+        normalized_mapping = {}
 
-            subject_exam, _ = SubjectExam.objects.update_or_create(
-                subject=subjects[subject_name],
-                exam=exams[exam_name],
-                defaults={
-                    "max_grade": config["max_grade"],
-                    "success_grade": config["success_grade"],
-                }
+        for column_name, config in columns_mapping.items():
+
+            normalized_mapping[
+                normalize(column_name)
+            ] = config
+
+        # ==========================================
+        # Resolve SubjectExams
+        # ==========================================
+
+        column_subject_exams = {}
+
+        for column in df.columns:
+
+            # --------------------------------------
+            # Columns that are not grades
+            # --------------------------------------
+
+            if column in {
+                "username",
+                "family",
+            }:
+                continue
+
+            # --------------------------------------
+            # Ignore unknown columns
+            # --------------------------------------
+
+            normalized_column = normalize(column)
+
+            if normalized_column not in normalized_mapping:
+                continue
+
+            config = normalized_mapping[
+                normalized_column
+            ]
+
+            subject_name = config["subject"]
+            exam_name = config["exam"]
+
+            # --------------------------------------
+            # Find Subject
+            # --------------------------------------
+
+            subject = None
+
+            normalized_subject_name = normalize(subject_name)
+
+            for candidate in Subject.objects.all():
+
+                if normalize(candidate.name) == normalized_subject_name:
+                    subject = candidate
+                    break
+
+            if not subject:
+
+                raise CommandError(
+                    f'Column "{column}": '
+                    f'Subject "{subject_name}" '
+                    f'does not exist.'
+                )
+
+            # --------------------------------------
+            # Find SubjectExam
+            # --------------------------------------
+
+            subject_exam = (
+                SubjectExam.objects
+                .filter(
+                    subject=subject,
+                    exam=exams[exam_name]
+                )
+                .first()
             )
 
-            subject_exams[
-                (subject_name, exam_name)
-            ] = subject_exam
+            if not subject_exam:
 
-        # ==========================================
-        # Subject Components
-        # ==========================================
+                raise CommandError(
+                    f'Column "{column}": '
+                    f'SubjectExam for '
+                    f'"{subject_name}" - '
+                    f'"{exam_name}" '
+                    f'does not exist.'
+                )
 
-        components = {}
-
-        for component_name in [
-            "المزمور الأول",
-            "المزمور الثاني",
-            "المزمور الثالث",
-        ]:
-
-            component, _ = SubjectComponent.objects.get_or_create(
-                subject=subjects["أجبية"],
-                name=component_name
-            )
-
-            components[component_name] = component
-
-        # ==========================================
-        # Component Exams
-        # ==========================================
-
-        component_exams = {}
-
-        for component_name, component in components.items():
-
-            component_exam, _ = ComponentExam.objects.update_or_create(
-                component=component,
-                exam=exams["ترم 1"],
-                defaults={
-                    "max_grade": 5,
-                    "success_grade": 2.5,
-                }
-            )
-
-            component_exams[
-                component_name
-            ] = component_exam
+            column_subject_exams[column] = subject_exam
 
         # ==========================================
         # Students
@@ -318,199 +352,236 @@ class Command(BaseCommand):
 
         imported_students = 0
         imported_results = 0
+        skipped_results = 0
 
-        for row in range(5, sheet.max_row + 1):
+        # ==========================================
+        # Process Excel Rows
+        # ==========================================
 
-            student_number = sheet.cell(row, 1).value
-            student_name = sheet.cell(row, 2).value
+        for index, row in df.iterrows():
 
-            # ======================================
-            # Skip empty rows
-            # ======================================
-
-            if not student_name:
-                continue
-
-            student_name = str(student_name).strip()
+            excel_row = index + 2
 
             # ======================================
-            # Find student
+            # Username
             # ======================================
 
-            try:
-                student = CustomUser.objects.get(
-                    username=student_name
+            username = clean(
+                row.get("username")
+            )
+
+            if not username:
+
+                self.stdout.write(
+                    self.style.WARNING(
+                        f"Row {excel_row}: "
+                        f"username مطلوب"
+                    )
                 )
 
-            except CustomUser.DoesNotExist:
+                continue
+
+            # ======================================
+            # Family Name
+            # ======================================
+
+            family_name = clean(
+                row.get("family")
+            )
+
+            if not family_name:
 
                 raise CommandError(
-                    f'Student "{student_name}" was not found.'
+                    f"Row {excel_row}: "
+                    f"family مطلوب."
+                )
+
+            # ======================================
+            # Find Student
+            # ======================================
+
+            student = (
+                CustomUser.objects
+                .filter(
+                    username=username
+                )
+                .first()
+            )
+
+            if not student:
+
+                raise CommandError(
+                    f'Row {excel_row}: '
+                    f'Student "{username}" '
+                    f'was not found.'
+                )
+
+            # ======================================
+            # Find Family
+            # ======================================
+
+            family = (
+                Family.objects
+                .annotate(
+                    clean_name=Trim("name")
+                )
+                .filter(
+                    clean_name=family_name
+                )
+                .first()
+            )
+
+            if not family:
+
+                raise CommandError(
+                    f'Row {excel_row}: '
+                    f'Family "{family_name}" '
+                    f'was not found.'
+                )
+
+            # ======================================
+            # Validate Student Family
+            # ======================================
+
+            if student.family_id != family.id:
+
+                actual_family = (
+                    student.family.name
+                    if student.family
+                    else "بدون أسرة"
+                )
+
+                raise CommandError(
+                    f'Row {excel_row}: '
+                    f'Student "{username}" belongs to '
+                    f'"{actual_family}", '
+                    f'but Excel says '
+                    f'"{family_name}".'
                 )
 
             # ======================================
             # Enrollment
             # ======================================
 
-            enrollment, _ = StudentEnrollment.objects.get_or_create(
-                student=student,
-                family=family,
-                academic_year=academic_year
+            enrollment, _ = (
+                StudentEnrollment.objects
+                .get_or_create(
+                    student=student,
+                    family=family,
+                    academic_year=academic_year
+                )
             )
 
             imported_students += 1
 
+            student_results = 0
+
             # ======================================
-            # Helper
+            # Results
             # ======================================
 
-            def create_subject_result(
-                subject_name,
-                exam_name,
-                points
+            for column, subject_exam in (
+                column_subject_exams.items()
             ):
 
-                if points is None:
-                    return
+                value = clean(
+                    row.get(column)
+                )
 
-                subject_exam = subject_exams[
-                    (subject_name, exam_name)
-                ]
+                # ----------------------------------
+                # Empty Grade
+                # ----------------------------------
+
+                if value is None:
+
+                    skipped_results += 1
+
+                    continue
+
+                # ----------------------------------
+                # Convert Grade
+                # ----------------------------------
+
+                try:
+
+                    points = float(value)
+
+                except (ValueError, TypeError):
+
+                    raise CommandError(
+                        f'Row {excel_row}: '
+                        f'Invalid grade "{value}" '
+                        f'in column "{column}".'
+                    )
+
+                # ----------------------------------
+                # Negative Grade
+                # ----------------------------------
+
+                if points < 0:
+
+                    raise CommandError(
+                        f'Row {excel_row}: '
+                        f'Grade for "{column}" '
+                        f'cannot be negative.'
+                    )
+
+                # ----------------------------------
+                # Max Grade Validation
+                # ----------------------------------
+
+                if points > subject_exam.max_grade:
+
+                    raise CommandError(
+                        f'Row {excel_row}: '
+                        f'Grade {points} for '
+                        f'"{column}" exceeds '
+                        f'max grade '
+                        f'{subject_exam.max_grade}.'
+                    )
+
+                # ----------------------------------
+                # Create / Update Result
+                # ----------------------------------
 
                 Result.objects.update_or_create(
                     enrollment=enrollment,
                     subject_exam=subject_exam,
                     defaults={
-                        "component_exam": None,
-                        "points": float(points)
+                        "points": points
                     }
                 )
 
-            def create_component_result(
-                component_name,
-                points
-            ):
-
-                if points is None:
-                    return
-
-                component_exam = component_exams[
-                    component_name
-                ]
-
-                Result.objects.update_or_create(
-                    enrollment=enrollment,
-                    component_exam=component_exam,
-                    defaults={
-                        "subject_exam": None,
-                        "points": float(points)
-                    }
-                )
+                imported_results += 1
+                student_results += 1
 
             # ======================================
-            # الألحان
+            # Calculate Annual Status
             # ======================================
 
-            create_subject_result(
-                "الألحان",
-                "ترم 1",
-                sheet.cell(row, 3).value
+            from results.services import (
+                update_annual_status
             )
 
-            create_subject_result(
-                "الألحان",
-                "ترم 2",
-                sheet.cell(row, 4).value
-            )
-
-            create_subject_result(
-                "الألحان",
-                "ترم 3",
-                sheet.cell(row, 5).value
+            update_annual_status(
+                enrollment
             )
 
             # ======================================
-            # المواد الدراسية
+            # Log
             # ======================================
 
-            create_subject_result(
-                "طقس",
-                "ترم 1",
-                sheet.cell(row, 7).value
+            self.stdout.write(
+                f"Row {excel_row}: "
+                f"{username} -> "
+                f"{student_results} results"
             )
-
-            create_subject_result(
-                "قبطي",
-                "ترم 2",
-                sheet.cell(row, 8).value
-            )
-
-            create_subject_result(
-                "كتاب مقدس",
-                "ترم 3",
-                sheet.cell(row, 9).value
-            )
-
-            create_subject_result(
-                "عقيدة",
-                "ترم 3",
-                sheet.cell(row, 10).value
-            )
-
-            # ======================================
-            # الأجبية
-            # ======================================
-
-            create_component_result(
-                "المزمور الأول",
-                sheet.cell(row, 11).value
-            )
-
-            create_component_result(
-                "المزمور الثاني",
-                sheet.cell(row, 12).value
-            )
-
-            create_component_result(
-                "المزمور الثالث",
-                sheet.cell(row, 13).value
-            )
-
-            # ======================================
-            # الحضور والغياب
-            # ======================================
-
-            create_subject_result(
-                "الحضور والغياب",
-                "ترم 1",
-                sheet.cell(row, 15).value
-            )
-
-            create_subject_result(
-                "الحضور والغياب",
-                "ترم 2",
-                sheet.cell(row, 16).value
-            )
-
-            create_subject_result(
-                "الحضور والغياب",
-                "ترم 3",
-                sheet.cell(row, 17).value
-            )
-
-            # ======================================
-            # Calculate annual status
-            # ======================================
-
-            from results.services import update_annual_status
-
-            update_annual_status(enrollment)
-
-            imported_results += 1
 
         # ==========================================
         # Done
         # ==========================================
+
+        self.stdout.write("")
 
         self.stdout.write(
             self.style.SUCCESS(
@@ -519,9 +590,16 @@ class Command(BaseCommand):
         )
 
         self.stdout.write(
-            f"Students imported: {imported_students}"
+            f"Students imported: "
+            f"{imported_students}"
         )
 
         self.stdout.write(
-            f"Enrollments processed: {imported_results}"
+            f"Results imported/updated: "
+            f"{imported_results}"
+        )
+
+        self.stdout.write(
+            f"Empty grades skipped: "
+            f"{skipped_results}"
         )

@@ -88,7 +88,8 @@ class Command(BaseCommand):
         updated = 0
         skipped = 0
 
-        # هنخزن بيانات next_family لمرحلة الربط الثانية
+        # هنخزن بيانات next_family
+        # علشان نعمل الربط في المرحلة الثانية
         family_data = []
 
         for index, row in df.iterrows():
@@ -201,7 +202,6 @@ class Command(BaseCommand):
                 "row": excel_row,
                 "family": family,
                 "next_family_name": next_family_name,
-                "stage": stage,
             })
 
         # ==========================================
@@ -217,7 +217,6 @@ class Command(BaseCommand):
             excel_row = item["row"]
             family = item["family"]
             next_family_name = item["next_family_name"]
-            stage = item["stage"]
 
             # ======================================
             # No next family
@@ -226,22 +225,39 @@ class Command(BaseCommand):
             if not next_family_name:
 
                 if family.next_family_id is not None:
+
                     family.next_family = None
-                    family.save(update_fields=["next_family"])
+
+                    family.save(
+                        update_fields=["next_family"]
+                    )
+
                     cleared += 1
 
                 continue
 
             # ======================================
             # Find next family
+            #
+            # IMPORTANT:
+            # next_family can belong to another stage.
+            #
+            # Example:
+            #
+            # Stage 1
+            # Family 3
+            #      ↓
+            # Stage 2
+            # Family 4
+            #
+            # Therefore we DO NOT filter by stage.
             # ======================================
 
             next_family = (
                 Family.objects
                 .annotate(clean_name=Trim("name"))
                 .filter(
-                    clean_name=next_family_name,
-                    stage=stage
+                    clean_name=next_family_name
                 )
                 .first()
             )
@@ -252,9 +268,10 @@ class Command(BaseCommand):
                     self.style.WARNING(
                         f"Row {excel_row}: "
                         f"الأسرة التالية '{next_family_name}' "
-                        f"غير موجودة في المرحلة '{stage.name}'"
+                        f"غير موجودة"
                     )
                 )
+
                 continue
 
             # ======================================
@@ -270,6 +287,7 @@ class Command(BaseCommand):
                         f"لا يمكن أن تكون next_family لنفسها"
                     )
                 )
+
                 continue
 
             # ======================================
@@ -279,7 +297,10 @@ class Command(BaseCommand):
             if family.next_family_id != next_family.id:
 
                 family.next_family = next_family
-                family.save(update_fields=["next_family"])
+
+                family.save(
+                    update_fields=["next_family"]
+                )
 
                 linked += 1
 
