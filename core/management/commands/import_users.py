@@ -32,7 +32,7 @@ class Command(BaseCommand):
             value = clean(value)
             if value is None:
                 return None
-            return pd.to_datetime(value).date()
+            return pd.to_datetime(value, dayfirst=True).date()
 
         for index, row in df.iterrows():
 
@@ -111,6 +111,7 @@ class Command(BaseCommand):
                 address=clean(row.get("address")) or "",
                 phone=clean(row.get("phone")) or "",
                 whatsapp=clean(row.get("whatsapp")),
+                parent_phone=clean(row.get("parent_phone")),
                 father=clean(row.get("father")) or "",
                 joined_date=parse_date(row.get("joined_date")),
                 birth_date=parse_date(row.get("birth_date")),
