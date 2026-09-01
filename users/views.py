@@ -255,23 +255,37 @@ class AdminResetUserPassword(APIView):
 class UserUpdatePassword(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
-    def post(self,request):
+    def post(self, request):
+        new_password = request.data.get("new_password")
+        confirm_password = request.data.get("confirm_password")
+
+        if not new_password or not confirm_password:
+            return Response(
+                {"errors": ["كلمة المرور مطلوبة."]},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if new_password != confirm_password:
+            return Response(
+                {"errors": ["كلمتا المرور غير متطابقتين."]},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         try:
-            new_password = request.data.get('new_password')
-            confirm_password = request.data.get('confirm_password')
-            if new_password != confirm_password:
-                raise ValidationError(("Password should match"),code = 'Password should match')
-            user = request.user
-            validate_password(new_password,user)
+            validate_password(new_password, request.user)
         except ValidationError as e:
-            return Response({"errors":e.error_list},status=status.HTTP_403_FORBIDDEN)
-        
-        user.set_password(new_password)
-        user.save()
+            return Response(
+                {"errors": e.messages},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
-        return Response({'response':"Password Changesd Successfully!"},status=status.HTTP_200_OK)
-    
+        request.user.set_password(new_password)
+        request.user.save()
 
+        return Response(
+            {"response": "تم تغيير كلمة المرور بنجاح."},
+            status=status.HTTP_200_OK
+        )
 
 class ManageUserRoles(APIView):
     permission_classes = [permissions.IsAuthenticated]

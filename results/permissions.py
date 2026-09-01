@@ -63,10 +63,7 @@ def can_manage_student(user, student):
         "امين اسرة",
         "امين مساعد اسرة",
     ]:
-        exists = StudentEnrollment.objects.filter(
-            student=student,
-            family=user.family
-        ).exists()
+        exists = student.family_id == user.family_id
 
         print("FAMILY ROLE =>", exists)
 
