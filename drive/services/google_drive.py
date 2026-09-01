@@ -39,22 +39,28 @@ def get_all_audio_files(service, folder_id):
 
     response = service.files().list(
         q=query,
-        fields="files(id, name, mimeType)"
+        fields="files(id, name, mimeType)",
+        pageSize=1000
     ).execute()
 
     items = response.get("files", [])
 
     for item in items:
 
+        # Folder
         if item["mimeType"] == "application/vnd.google-apps.folder":
             results.append({
                 "type": "folder",
                 "id": item["id"],
                 "name": item["name"],
-                "alhan": get_all_audio_files(service, item["id"])  # recursion
+                "children": get_all_audio_files(
+                    service,
+                    item["id"]
+                )
             })
 
-        elif "audio" in item["mimeType"]:
+        # Audio
+        elif item["mimeType"].startswith("audio/"):
             results.append({
                 "type": "audio",
                 "id": item["id"],

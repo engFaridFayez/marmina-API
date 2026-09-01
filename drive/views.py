@@ -8,7 +8,8 @@ import requests
 def get_alhan(request):
     family_id = request.GET.get("family")
 
-    # المستخدم ليس مرتبطًا بأسرة
+    print("=== FAMILY ID ===", family_id)
+
     if not family_id or family_id == "NaN":
         return JsonResponse([], safe=False)
 
@@ -17,7 +18,9 @@ def get_alhan(request):
     except (ValueError, Family.DoesNotExist):
         return JsonResponse([], safe=False)
 
-    # الأسرة ليس لها فولدر ألحان
+    print("=== FAMILY ===", family)
+    print("=== DRIVE FOLDER ID ===", family.drive_folder_id)
+
     if not family.drive_folder_id:
         return JsonResponse([], safe=False)
 
@@ -27,6 +30,10 @@ def get_alhan(request):
         service,
         family.drive_folder_id
     )
+
+    print("=== DRIVE FILES ===")
+    print(files)
+    print("=================")
 
     return JsonResponse(files, safe=False)
 
