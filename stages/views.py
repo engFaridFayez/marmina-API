@@ -58,7 +58,7 @@ class FamilyListView(ListAPIView):
                 stage=user.family.stage
             ).select_related("stage")
 
-        # امين اسرة / خادم عادي
+        # امين اسرة / خادم
         return Family.objects.filter(
             id=user.family.id
         ).select_related("stage")

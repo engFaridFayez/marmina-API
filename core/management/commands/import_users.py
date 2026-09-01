@@ -88,7 +88,7 @@ class Command(BaseCommand):
 
             # Validation
 
-            if role in ["مخدوم", "خادم عادي", "امين اسرة", "امين مساعد اسرة"] and not family:
+            if role in ["مخدوم", "خادم", "امين اسرة", "امين مساعد اسرة"] and not family:
                 self.stdout.write(
                     self.style.WARNING(
                         f"Row {index + 2}: هذا المستخدم يجب أن يكون له أسرة"

@@ -14,13 +14,20 @@ class IsFamilyLeader(permissions.BasePermission):
     
 class IsServant(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user.is_authenticated and request.user.role == "خادم عادي"
+        return request.user.is_authenticated and request.user.role == "خادم"
 
 class AllExceptServant(permissions.BasePermission):
     def has_permission(self, request, view):
         return (
             request.user.is_authenticated and
             request.user.role in ["امين اسرة", "امين مرحلة", "امين الشمامسة"]
+        )
+
+class AllServants(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return (
+            request.user.is_authenticated and
+            request.user.role in ["امين اسرة", "امين مرحلة", "امين الشمامسة", "خادم"]
         )
 
 

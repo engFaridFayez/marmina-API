@@ -20,13 +20,13 @@ def can_manage_family(user, family):
 
     # أمين الأسرة والمساعد
     if user.role in [
-        "خادم عادي",
+        "خادم",
         "امين اسرة",
         "امين مساعد اسرة",
     ]:
         return user.family_id == family.id
 
-    # خادم عادي / مخدوم
+    # خادم / مخدوم
     return False
 
 from results.models import StudentEnrollment
@@ -59,7 +59,7 @@ def can_manage_student(user, student):
         return exists
 
     if user.role in [
-        "خادم عادي",
+        "خادم",
         "امين اسرة",
         "امين مساعد اسرة",
     ]:

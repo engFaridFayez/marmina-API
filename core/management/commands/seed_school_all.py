@@ -274,7 +274,7 @@ class Command(BaseCommand):
                                 "name": name,
                                 "birth_date": birth,
                                 "address": address,
-                                "role": role or "خادم عادي",
+                                "role": role or "خادم",
                                 "stage": stage,
                                 "family": family
                             }

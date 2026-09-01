@@ -9,7 +9,7 @@ from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from auditlogging.services.logging import log_action
 from stages.models import Stage
 from users.models import CustomUser, StageLeader
-from users.permissions import AllExceptServant, IsHead
+from users.permissions import AllExceptServant, IsHead,AllServants
 from users.serializers import ProfileSerializer, UserSerializer
 from rest_framework.generics import RetrieveAPIView
 
@@ -42,7 +42,7 @@ class UsersList(ListAPIView):
             )
 
         elif user.family:
-            # أمين أسرة أو خادم عادي — أسرته بس
+            # أمين أسرة أو خادم — أسرته بس
             queryset = queryset.filter(family=user.family)
 
         else:
@@ -146,7 +146,7 @@ class UpdateMyProfile(APIView):
         
         return Response(serializer.errors, status=400)
 class AdminUpdateUser(APIView):
-    permission_classes = [AllExceptServant]
+    permission_classes = [AllServants]
     parser_classes = [MultiPartParser, FormParser, JSONParser]
 
     def patch(self, request, user_id):

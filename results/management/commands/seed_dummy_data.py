@@ -190,7 +190,7 @@ class Command(BaseCommand):
                 servant = self.create_user(
                     username=f"family{index}_servant",
                     full_name=f"خادم {family.name}",
-                    role="خادم عادي",
+                    role="خادم",
                     family=family,
                 )
 
