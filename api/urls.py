@@ -21,7 +21,7 @@ from api import settings
 from django.contrib import admin
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('django-admin/', admin.site.urls),
     path('api/',include('users.urls')),
     path('api/',include('stages.urls')),
     path('api/drive/',include('drive.urls')),
